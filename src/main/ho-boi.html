@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ bơi</title>
+</head>
+
+<body class="bg-[#F6FFFF]">
+
+    <header>
+        <nav class="bg-[#F6FFFF] border-gray-200 ">
+            <div class="flex flex-wrap justify-between items-center mx-auto container p-3 h-[77px]">
+                <a href="/src/main/home.html" class="flex items-center">
+                    <img src="/src/img/logo.svg" alt="Logo" class="w-[97px] h-[58px] object-contain" />
+                </a>
+
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <div class="relative w-full max-w-2xl mx-auto">
+                        <input type="text" placeholder="Tìm kiếm ..."
+                            class="w-[461px]  h-[43px] pl-6 pr-14 rounded-full border border-blue-400 focus:ring-2 focus:ring-blue-300 outline-none" />
+
+                        <button
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10  rounded-full flex items-center justify-center">
+                            <img src="/src/img/search-icon.svg" alt="search" class="">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <button
+                        class="w-[174px] h-[38px] flex justify-center items-center border rounded-3xl text-sm text-[#161A47] ">
+                        <img src="/src/img/phone-icon.svg" alt="phone-icon"> <span class="ml-2">0832700969</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <nav class="bg-[#0D4A9A] ">
+            <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                <div class="flex items-center justify-center">
+                    <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                        <li>
+                            <a href="/src/main/home.html" class="text-white hover:no-underline"
+                                aria-current="page">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/gioi-thieu.html" class="text-white hover:no-underline">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/ho-boi.html" class="text-white hover:no-underline">Hồ bơi</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tu-van-detail.html" class="text-white hover:no-underline">Composite</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tin-tuc.html" class="text-white hover:no-underline">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/du-an.html" class="text-white hover:no-underline">Dự án tiêu biểu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/goc-tu-van.html" class="text-white hover:no-underline">Góc tư vấn</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/lien-he.html" class="text-white hover:no-underline">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Breadcrumbs  -->
+    <section class="bg-[#F8F8F8]">
+        <div class="container mx-auto px-4">
+            <nav class="flex py-3" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="#"
+                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <a href="#"
+                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Sản
+                                phẩm
+                            </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <a href="#"
+                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Hồ
+                                bơi
+                            </a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+        </div>
+    </section>
+    <!-- end Breadcrumbs  -->
+    <div class="container  mx-auto px-4  wrap-content">
+        <!-- Start banner -->
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4  py-6">
+                <!-- Sidebar -->
+                <div class="md:col-span-1 bg-white rounded-lg shadow border border-gray-200">
+                    <div class="bg-[#0D4A9A] text-white font-semibold text-center py-3 rounded-t-lg">
+                        DANH MỤC SẢN PHẨM
+                    </div>
+                    <ul class="divide-y divide-gray-300">
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Thiết Bị Hệ Thống Lọc Hồ Bơi</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Thiết Bị Vệ Sinh Hồ Bơi</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hoá Chất Xử Lý Nước Hồ Bơi</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Phụ Kiện Hồ Bơi</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Gạch Dán Hồ Bơi Và Phụ Gia</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Giải Pháp Công Nghệ Cho Hồ Bơi</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hồ Bơi Composite</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Thiết Bị Spa</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Tư Vấn, Thiết Kế Và Xây Dựng Hồ Bơi</li>
+                    </ul>
+                </div>
+
+                <!-- Banner -->
+                <div class="md:col-span-3 relative rounded-lg overflow-hidden">
+                    <img src="/src/img/banner_ho_boi.png" alt="Hồ bơi"
+                        class="w-full h-[420px] object-cover rounded-lg scale-x-[-1]">
+                    <h2 class="absolute top-12 left-20 transform -translate-x-1/2 text-3xl font-bold text-[#0D4A9A]">
+                        HỒ BƠI
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <!-- End banner -->
+
+        <!-- Start Sản phẩm -->
+        <section class="">
+            <div class="mb-12 mt-17">
+                <h2 class="text-3xl font-bold leading-[100%] text-[#0D4A9A] relative pl-6">
+                    <span
+                        class=" absolute left-1 top-1/2 -translate-y-1/2 w-[2px] h-6 bg-[#0D4A9A] rounded-full"></span>
+                    Thiết bị hệ thống lọc hồ bơi
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+                <div
+                    class="col-span-1 border bg-white border-gray-200 rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="bg-gray-100 rounded-lg m-1 p-3 h-64 flex justify-center items-center">
+                        <img src="/src/img/product1.png" alt="Tên sản phẩm" class="max-h-full w-auto object-contain">
+                    </div>
+
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-bold text-[#0D4A9A] uppercase">
+                            HALOGEN HAYWARD ĐÈN ÂM NƯỚC BỂ BƠI CHẤT LƯỢNG
+                        </p>
+                    </div>
+
+                </div>
+                <div
+                    class="col-span-1 border bg-white border-gray-200 rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="bg-gray-100 rounded-lg m-1 p-3 h-64 flex justify-center items-center">
+                        <img src="/src/img/product2.png" alt="Tên sản phẩm" class="max-h-full w-auto object-contain">
+                    </div>
+
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-bold text-[#0D4A9A] uppercase">
+                            HALOGEN HAYWARD ĐÈN ÂM NƯỚC BỂ BƠI CHẤT LƯỢNG
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="col-span-1 border bg-white border-gray-200 rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="bg-gray-100 rounded-lg m-1 p-3 h-64 flex justify-center items-center">
+                        <img src="/src/img/product3.png" alt="Tên sản phẩm" class="max-h-full w-auto object-contain">
+                    </div>
+
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-bold text-[#0D4A9A] uppercase">
+                            HALOGEN HAYWARD ĐÈN ÂM NƯỚC BỂ BƠI CHẤT LƯỢNG
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="col-span-1 border bg-white border-gray-200 rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="bg-gray-100 rounded-lg m-1 p-3 h-64 flex justify-center items-center">
+                        <img src="/src/img/skimer-em0130-sc-500x500.png" alt="Tên sản phẩm"
+                            class="max-h-full w-auto object-contain">
+                    </div>
+
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-bold text-[#0D4A9A] uppercase">
+                            HALOGEN HAYWARD ĐÈN ÂM NƯỚC BỂ BƠI CHẤT LƯỢNG
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Sản phẩm -->
+
+
+        <!-- Pagination Sản phẩm  -->
+
+        <section>
+            <nav class="flex justify-center items-center space-x-2 mt-13" aria-label="Pagination">
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full 
+                      border border-[#0D4A9A] text-[#0D4A9A] transition duration-200 
+                      hover:bg-[#0D4A9A] hover:text-white" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    1
+                </a>
+
+                <a href="#" aria-current="page" class="w-10 h-10 flex items-center justify-center text-sm font-bold 
+                      bg-[#0D4A9A] text-white rounded-full">
+                    2
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    3
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    4
+                </a>
+
+                <span class="text-gray-500 font-medium">...</span>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    10
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full 
+                      border border-[#0D4A9A] text-[#0D4A9A] transition duration-200 
+                      hover:bg-[#0D4A9A] hover:text-white" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+            </nav>
+        </section>
+        <!-- END Pagination Sản phẩm  -->
+
+    </div>
+
+
+    <footer class="bg-[#0D4A9A] text-white pt-12 mt-[133px]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+
+            <!-- Logo + Info -->
+            <div>
+                <img src="/src/img/logo.svg" class="w-40 mb-4" alt="Logo" />
+                <p class="uppercase font-bold">POOL & COMPOSITE</p>
+                <ul class="mt-5 text-base space-y-2">
+                    <li>📍 Địa chỉ: 30 Hoa Lan, Phường Cầu Kiệu, TP.HCM</li>
+                    <li>📧 Email: pooltech.hns@gmail.com</li>
+                    <li>☎️ Hotline: 0983 804 445</li>
+                </ul>
+                <div class="register-email space-y-3 mt-2 w-full max-w-md">
+                    <h3 class="text-xl font-semibold">Đăng ký nhận email của chúng tôi</h3>
+
+                    <div class="relative">
+                        <input type="email"
+                            class="placeholder:text-gray-500 text-gray-500 w-full border border-gray-300 py-2 pl-4 pr-28 rounded focus:outline-none bg-white focus:border-blue-500"
+                            placeholder="Email address...">
+
+                        <button
+                            class="absolute  right-1 top-1/2 transform -translate-y-1/2 bg-[#0D4A9A] text-white  py-2 px-3 cursor-pointer rounded  transition text-sm">
+                            <img src="/src/img/Vector-right.svg" class="h-[17px]" alt="Vector-right">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Links -->
+            <div class="mx-auto">
+                <h3 class="font-bold mb-4 text-xl">Liên kết nhanh</h3>
+                <ul class="space-y-2 text-base">
+                    <li><a href="#" class="hover:underline">Giới thiệu</a></li>
+                    <li><a href="#" class="hover:underline">Hồ bơi</a></li>
+                    <li><a href="#" class="hover:underline">Composite</a></li>
+                    <li><a href="#" class="hover:underline">Tin tức</a></li>
+                    <li><a href="#" class="hover:underline">Dự án tiêu biểu</a></li>
+                    <li><a href="#" class="hover:underline">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <!-- Fanpage -->
+            <div class="h-[149px]">
+                <h4 class="font-bold mb-4 text-xl">Fanpage</h4>
+                <img src="/src/img/page-web.png" class="rounded-md h-[149px] w-full object-cover" />
+            </div>
+        </div>
+        <div class="mt-8">
+            <hr />
+        </div>
+        <div class="flex justify-center items-center text-sm h-[50px] w-full">
+            Copyright © 2025 Sagocomposite. Powered by HD Agency
+        </div>
+    </footer>
+    <script type="module" src="../main.js"></script>
+
+
+</body>
+
+</html>
