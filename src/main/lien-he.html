@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../../dist/output.css">
+    <link rel="stylesheet" href="../../node_modules/swiper/swiper-bundle.min.css" />
+    <script src="../../node_modules/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="bg-[#F6FFFF] border-gray-200 ">
+            <div class="flex flex-wrap justify-between items-center mx-auto container p-3 h-[77px]">
+                <a href="/src/main/home.html" class="flex items-center">
+                    <img src="/src/img/logo.svg" alt="Logo" class="w-[97px] h-[58px] object-contain" />
+                </a>
+
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <div class="relative w-full max-w-2xl mx-auto">
+                        <input type="text" placeholder="Tìm kiếm ..."
+                            class="w-[461px]  h-[43px] pl-6 pr-14 rounded-full border border-blue-400 focus:ring-2 focus:ring-blue-300 outline-none" />
+
+                        <button
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10  rounded-full flex items-center justify-center">
+                            <img src="/src/img/search-icon.svg" alt="search" class="">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <button
+                        class="w-[174px] h-[38px] flex justify-center items-center border rounded-3xl text-sm text-[#161A47] ">
+                        <img src="/src/img/phone-icon.svg" alt="phone-icon"> <span class="ml-2">0832700969</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <nav class="bg-[#0D4A9A] ">
+            <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                <div class="flex items-center justify-center">
+                    <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                        <li>
+                            <a href="/src/main/home.html" class="text-white hover:no-underline" aria-current="page">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/gioi-thieu.html" class="text-white hover:no-underline">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/ho-boi.html" class="text-white hover:no-underline">Hồ bơi</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tu-van-detail.html" class="text-white hover:no-underline">Composite</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tin-tuc.html" class="text-white hover:no-underline">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/du-an.html" class="text-white hover:no-underline">Dự án tiêu biểu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/goc-tu-van.html" class="text-white hover:no-underline">Góc tư vấn</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/lien-he.html" class="text-white hover:no-underline">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Breadcrumbs  -->
+    <section class="bg-[#F8F8F8]">
+        <div class="container mx-auto px-4">
+            <nav class="flex py-3" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="#"
+                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <a href="#"
+                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
+                                Liên Hệ</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+        </div>
+    </section>
+    <!-- End Breadcrumbs  -->
+
+
+    <div class="container mx-auto px-4">
+        <section>
+            <div class="header-gt flex justify-center my-[40px]">
+                <h3 class="text-4xl font-bold uppercase">Liên Hệ</h3>
+            </div>
+            <div class="flex flex-col lg:flex-row lg:space-x-8">
+                <div class="lg:w-5/12 shadow-xl rounded-lg overflow-hidden border border-[#0D4A9A]">
+
+                    <div class="bg-[#0D4A9A] p-6">
+                        <div class="flex justify-center items-center space-x-2 p-3 bg-white rounded-t-2xl">
+                            <img src="/src/img/logo.svg" alt="HNS Logo" class="h-[92px] w-auto">
+                        </div>
+                    </div>
+
+                    <div class="relative bg-[#0D4A9A] text-white">
+                        <div class="flex justify-center">
+                            <img src="/src/img/contract-model.png" alt="Nhân viên hỗ trợ"
+                                class="w-[337px] h-auto object-cover">
+                        </div>
+
+                        <div class="p-6 bg-[#2D5DA7] space-y-3 ">
+                            <p class="font-semibold">Giờ làm việc: 8:00 – 17:00 (Monday – Saturday)</p>
+                            <p class="font-semibold">Email: <a href="mailto:pooltech.hns@gmail.com"
+                                    class="hover:underline">pooltech.hns@gmail.com</a></p>
+                            <p class="font-semibold">Đường dây nóng đặt hàng và tư vấn: 0983 804 445</p>
+
+                            <div class="pt-4 space-y-2">
+                                <p class="font-semibold">Theo Dõi Chúng Tôi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-7/12">
+                    <form class="space-y-6 ">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-1">Họ tên*</label>
+                                <input type="text" id="name" placeholder="Lê Hạ Anh"
+                                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-1">Email*</label>
+                                <input type="email" id="email" placeholder="Your Email"
+                                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-1">Số điện thoại*</label>
+                                <input type="tel" id="phone" placeholder="Phone number"
+                                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-gray-700 font-medium mb-1">Dịch vụ*</label>
+                                <select id="service"
+                                    class="w-full border border-gray-300 p-3 rounded-lg appearance-none focus:ring-blue-500 focus:border-blue-500">
+                                    <option>The service 1 </option>
+                                    <option>The service 2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-1">Yêu cầu bổ sung</label>
+                            <textarea id="message" rows="5"
+                                placeholder="Hãy cho chúng tôi biết thêm về yêu cầu của bạn..."
+                                class="w-full border h-[276px] border-gray-300 p-3 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+
+                        <div class="pt-2">
+                            <p class="text-sm mb-3">Để không bỏ lỡ bất kỳ thông tin nào, vui lòng cung cấp cho tôi thông
+                                tin liên lạc của bạn!</p>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" checked class="text-blue-600 rounded">
+                                    <span class="text-gray-700">Email</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="text-blue-600 rounded">
+                                    <span class="text-gray-700">Số điện thoại</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bg-[#0D4A9A] text-white font-bold py-3 px-8 rounded-lg 
+                                     transition duration-300 hover:bg-[#2D5DA7]">
+                            GỬI NGAY
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="mt-7 w-full">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.039958638669!2d106.61668727355233!3d10.808251558608916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be5b80227f5%3A0x2d1f6fe0c5567d14!2zMzkwIEzDqiBUcuG7jW5nIFThuqVuLCBTxqFuIEvhu7MsIFTDom4gUGjDuiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oIDcwMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1761119010207!5m2!1svi!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </div>
+
+
+    <footer class=" bg-[#0D4A9A] text-white pt-12 mt-20">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+
+            <!-- Logo + Info -->
+            <div>
+                <img src="/src/img/logo.svg" class="w-40 mb-4" alt="Logo" />
+                <p class="uppercase font-bold">POOL & COMPOSITE</p>
+                <ul class="mt-5 text-base space-y-2">
+                    <li>📍 Địa chỉ: 30 Hoa Lan, Phường Cầu Kiệu, TP.HCM</li>
+                    <li>📧 Email: pooltech.hns@gmail.com</li>
+                    <li>☎️ Hotline: 0983 804 445</li>
+                </ul>
+                <div class="register-email space-y-3 mt-2 w-full max-w-md">
+                    <h3 class="text-xl font-semibold">Đăng ký nhận email của chúng tôi</h3>
+
+                    <div class="relative">
+                        <input type="email"
+                            class="placeholder:text-gray-500 text-gray-500 w-full border border-gray-300 py-2 pl-4 pr-28 rounded focus:outline-none bg-white focus:border-blue-500"
+                            placeholder="Email address...">
+
+                        <button
+                            class="absolute  right-1 top-1/2 transform -translate-y-1/2 bg-[#0D4A9A] text-white  py-2 px-3 cursor-pointer rounded  transition text-sm">
+                            <img src="/src/img/Vector-right.svg" class="h-[17px]" alt="Vector-right">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Links -->
+            <div class="mx-auto">
+                <h3 class="font-bold mb-4 text-xl">Liên kết nhanh</h3>
+                <ul class="space-y-2 text-base">
+                    <li><a href="#" class="hover:underline">Giới thiệu</a></li>
+                    <li><a href="#" class="hover:underline">Hồ bơi</a></li>
+                    <li><a href="#" class="hover:underline">Composite</a></li>
+                    <li><a href="#" class="hover:underline">Tin tức</a></li>
+                    <li><a href="#" class="hover:underline">Dự án tiêu biểu</a></li>
+                    <li><a href="#" class="hover:underline">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <!-- Fanpage -->
+            <div class="h-[149px]">
+                <h4 class="font-bold mb-4 text-xl">Fanpage</h4>
+                <img src="/src/img/page-web.png" class="rounded-md h-[149px] w-full object-cover" />
+            </div>
+
+        </div>
+        <div class="mt-8">
+            <hr />
+        </div>
+        <div class="flex justify-center items-center text-sm h-[50px] w-full">
+            Copyright © 2025 Sagocomposite. Powered by HD Agency
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

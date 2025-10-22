@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../../dist/output.css">
+    <link rel="stylesheet" href="../../node_modules/swiper/swiper-bundle.min.css" />
+    <script src="../../node_modules/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body class="bg-[#F6FFFF]">
+
+    <header>
+        <nav class="bg-[#F6FFFF] border-gray-200 ">
+            <div class="flex flex-wrap justify-between items-center mx-auto container p-3 h-[77px]">
+                <a href="/src/main/home.html" class="flex items-center">
+                    <img src="/src/img/logo.svg" alt="Logo" class="w-[97px] h-[58px] object-contain" />
+                </a>
+
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <div class="relative w-full max-w-2xl mx-auto">
+                        <input type="text" placeholder="Tìm kiếm ..."
+                            class="w-[461px]  h-[43px] pl-6 pr-14 rounded-full border border-blue-400 focus:ring-2 focus:ring-blue-300 outline-none" />
+
+                        <button
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10  rounded-full flex items-center justify-center">
+                            <img src="/src/img/search-icon.svg" alt="search" class="">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <button
+                        class="w-[174px] h-[38px] flex justify-center items-center border rounded-3xl text-sm text-[#161A47] ">
+                        <img src="/src/img/phone-icon.svg" alt="phone-icon"> <span class="ml-2">0832700969</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <nav class="bg-[#0D4A9A] ">
+            <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                <div class="flex items-center justify-center">
+                    <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                        <li>
+                            <a href="/src/main/home.html" class="text-white hover:no-underline" aria-current="page">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/gioi-thieu.html" class="text-white hover:no-underline">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/ho-boi.html" class="text-white hover:no-underline">Hồ bơi</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tu-van-detail.html" class="text-white hover:no-underline">Composite</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/tin-tuc.html" class="text-white hover:no-underline">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/du-an.html" class="text-white hover:no-underline">Dự án tiêu biểu</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/goc-tu-van.html" class="text-white hover:no-underline">Góc tư vấn</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/lien-he.html" class="text-white hover:no-underline">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Breadcrumbs  -->
+    <section class="bg-[#F8F8F8]">
+        <div class="container mx-auto px-4">
+            <nav class="flex py-3" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="#"
+                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <a href="#"
+                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
+                               Góc tư vấn</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+        </div>
+    </section>
+    <!-- end Breadcrumbs  -->
+
+
+    <div class="container mx-auto px-4">
+        <!-- Start Góc tư vấn -->
+        <section>
+            <div class="bg-[#F6FFFF]">
+                <div class="header-gt flex justify-center my-[40px]">
+                    <h3 class="text-4xl font-bold uppercase">Góc tư vấn</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-8 lg:gap-12">
+
+                <div class="col-span-12 lg:col-span-7">
+                    <article class="space-y-2">
+                        <img src="/src/img/goc-tu-van-1.png" alt="Ảnh nổi bật" class="w-full h-auto rounded-lg shadow-lg">
+                        <p class="text-base leading-5 font-medium text-[#115718]">29.07.2025</p>
+                        <h2 class="text-2xl font-medium text-[#1E1E1E] ">
+                            Hướng Dẫn Cách Làm Túi Vải Handmade Đơn Giản, Chi Tiết
+                        </h2>
+                        <p class="text-[#7C7C7C] leading-[150%]">
+                            Những chiếc túi vải handmade xinh xắn là phụ kiện thời trang thể hiện cá tính của người
+                            dùng. Bài viết hôm nay, Túi Thành Tiến sẽ hướng dẫn cách làm túi vải handmade đơn giản, chi
+                            tiết nhất.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="col-span-12 lg:col-span-5 space-y-4">
+
+                    <div class="flex items-center space-x-4 pb-4 border-b border-gray-200 last:border-b-0">
+
+                        <div class="flex-shrink-0 w-24 h-24">
+                            <img src="/src/img/tin-tuc-2.png" alt="Ảnh nhỏ"
+                                class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="flex-grow">
+                            <p class="text-sm font-medium leading-5 text-[#1E1E1E] mb-1">29.07.2025</p>
+                            <h3
+                                class="text-base leading-[130%] font-medium text-[#142345] hover:text-[#0D4A9A] transition duration-200 leading-tight mb-2">
+                                Hướng dẫn cách may túi đựng bình, ly nước giữ nhiệt chi tiết
+                            </h3>
+                            <a href="#" class="flex items-center text-[#0D4A9A] text-sm font-medium underline">
+                                <span class=" w-7 h-7 border rounded-full mx-1  flex items-center justify-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="flex items-center space-x-4 pb-4 border-b border-gray-200 last:border-b-0">
+
+                        <div class="flex-shrink-0 w-24 h-24">
+                            <img src="/src/img/tin-tuc-2.png" alt="Ảnh nhỏ"
+                                class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="flex-grow">
+                            <p class="text-sm font-medium leading-5 text-[#1E1E1E] mb-1">29.07.2025</p>
+                            <h3
+                                class="text-base leading-[130%] font-medium text-[#142345] hover:text-[#0D4A9A] transition duration-200 leading-tight mb-2">
+                                Hướng dẫn cách may túi đựng bình, ly nước giữ nhiệt chi tiết
+                            </h3>
+                            <a href="#" class="flex items-center text-[#0D4A9A] text-sm font-medium underline">
+                                <span class=" w-7 h-7 border rounded-full mx-1  flex items-center justify-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="flex items-center space-x-4 pb-4 border-b border-gray-200 last:border-b-0">
+
+                        <div class="flex-shrink-0 w-24 h-24">
+                            <img src="/src/img/tin-tuc-2.png" alt="Ảnh nhỏ"
+                                class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="flex-grow">
+                            <p class="text-sm font-medium leading-5 text-[#1E1E1E] mb-1">29.07.2025</p>
+                            <h3
+                                class="text-base leading-[130%] font-medium text-[#142345] hover:text-[#0D4A9A] transition duration-200 leading-tight mb-2">
+                                Hướng dẫn cách may túi đựng bình, ly nước giữ nhiệt chi tiết
+                            </h3>
+                            <a href="#" class="flex items-center text-[#0D4A9A] text-sm font-medium underline">
+                                <span class=" w-7 h-7 border rounded-full mx-1  flex items-center justify-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="flex items-center space-x-4 pb-4 border-b border-gray-200 last:border-b-0">
+
+                        <div class="flex-shrink-0 w-24 h-24">
+                            <img src="/src/img/tin-tuc-2.png" alt="Ảnh nhỏ"
+                                class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="flex-grow">
+                            <p class="text-sm font-medium leading-5 text-[#1E1E1E] mb-1">29.07.2025</p>
+                            <h3
+                                class="text-base leading-[130%] font-medium text-[#142345] hover:text-[#0D4A9A] transition duration-200 leading-tight mb-2">
+                                Hướng dẫn cách may túi đựng bình, ly nước giữ nhiệt chi tiết
+                            </h3>
+                            <a href="#" class="flex items-center text-[#0D4A9A] text-sm font-medium underline">
+                                <span class=" w-7 h-7 border rounded-full mx-1  flex items-center justify-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- End Góc tư vấn -->
+
+        <!-- News -->
+        <section>
+            <div class="grid grid-cols-12 mt-30 gap-6">
+
+                <div class="col-12  md:col-span-4 h-[480px] ">
+                    <div
+                        class="bg-white rounded-xl border border-[#C9C9C9] h-full overflow-hidden hover:shadow-lg transition">
+                        <img src="/src/img/tin-tuc-4.png" class="w-full h-[305px] object-cover p-3 rounded-3xl" />
+                        <div class="p-2 space-y-3">
+                            <div class="flex text-xs  justify-start items-center mb-2 gap-1">
+                                <span
+                                    class="bg-[#0D4A9A] text-base cursor-pointer font-semibold leading-4 text-white px-7 py-2 rounded-sm">Tin
+                                    tức</span>
+                                <span class="font-semibold text-base leading-4 text-black">15.10.2025</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-black leading-6 mt-1">
+                                Top 17 hồ bơi TPHCM đẹp và sang chảnh nhất | Vườn An Nam
+                            </h3>
+                            <div class="flex justify-between">
+                                <p class="text-[15px] text-[#3A3A3A] font-medium leading-5">
+                                    Đèn hồ bơi Halogen của Sagocomposite được thiết kế riêng cho các hồ bơi nổi.
+                                </p>
+                                <a href="#" class="flex items-center">
+                                    <span
+                                        class="border rounded-full w-10 h-10 mx-1 text-[#909090]    flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12  md:col-span-4 h-[480px] ">
+                    <div
+                        class="bg-white rounded-xl border border-[#C9C9C9] h-full overflow-hidden hover:shadow-lg transition">
+                        <img src="/src/img/tin-tuc-4.png" class="w-full h-[305px] object-cover p-3 rounded-3xl" />
+                        <div class="p-2 space-y-3">
+                            <div class="flex text-xs  justify-start items-center mb-2 gap-1">
+                                <span
+                                    class="bg-[#0D4A9A] text-base cursor-pointer font-semibold leading-4 text-white px-7 py-2 rounded-sm">Tin
+                                    tức</span>
+                                <span class="font-semibold text-base leading-4 text-black">15.10.2025</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-black leading-6 mt-1">
+                                Top 17 hồ bơi TPHCM đẹp và sang chảnh nhất | Vườn An Nam
+                            </h3>
+                            <div class="flex justify-between">
+                                <p class="text-[15px] text-[#3A3A3A] font-medium leading-5">
+                                    Đèn hồ bơi Halogen của Sagocomposite được thiết kế riêng cho các hồ bơi nổi.
+                                </p>
+                                <a href="#" class="flex items-center">
+                                    <span
+                                        class="border rounded-full w-10 h-10 mx-1 text-[#909090]    flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12  md:col-span-4 h-[480px] ">
+                    <div
+                        class="bg-white rounded-xl border border-[#C9C9C9] h-full overflow-hidden hover:shadow-lg transition">
+                        <img src="/src/img/tin-tuc-4.png" class="w-full h-[305px] object-cover p-3 rounded-3xl" />
+                        <div class="p-2 space-y-3">
+                            <div class="flex text-xs  justify-start items-center mb-2 gap-1">
+                                <span
+                                    class="bg-[#0D4A9A] text-base cursor-pointer font-semibold leading-4 text-white px-7 py-2 rounded-sm">Tin
+                                    tức</span>
+                                <span class="font-semibold text-base leading-4 text-black">15.10.2025</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-black leading-6 mt-1">
+                                Top 17 hồ bơi TPHCM đẹp và sang chảnh nhất | Vườn An Nam
+                            </h3>
+                            <div class="flex justify-between">
+                                <p class="text-[15px] text-[#3A3A3A] font-medium leading-5">
+                                    Đèn hồ bơi Halogen của Sagocomposite được thiết kế riêng cho các hồ bơi nổi.
+                                </p>
+                                <a href="#" class="flex items-center">
+                                    <span
+                                        class="border rounded-full w-10 h-10 mx-1 text-[#909090]    flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12  md:col-span-4 h-[480px] ">
+                    <div
+                        class="bg-white rounded-xl border border-[#C9C9C9] h-full overflow-hidden hover:shadow-lg transition">
+                        <img src="/src/img/tin-tuc-4.png" class="w-full h-[305px] object-cover p-3 rounded-3xl" />
+                        <div class="p-2 space-y-3">
+                            <div class="flex text-xs  justify-start items-center mb-2 gap-1">
+                                <span
+                                    class="bg-[#0D4A9A] text-base cursor-pointer font-semibold leading-4 text-white px-7 py-2 rounded-sm">Tin
+                                    tức</span>
+                                <span class="font-semibold text-base leading-4 text-black">15.10.2025</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-black leading-6 mt-1">
+                                Top 17 hồ bơi TPHCM đẹp và sang chảnh nhất | Vườn An Nam
+                            </h3>
+                            <div class="flex justify-between">
+                                <p class="text-[15px] text-[#3A3A3A] font-medium leading-5">
+                                    Đèn hồ bơi Halogen của Sagocomposite được thiết kế riêng cho các hồ bơi nổi.
+                                </p>
+                                <a href="#" class="flex items-center">
+                                    <span
+                                        class="border rounded-full w-10 h-10 mx-1 text-[#909090]    flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End News -->
+
+                <!-- Pagination Tin tuc  -->
+
+        <section>
+            <nav class="flex justify-end items-center space-x-2 mt-13" aria-label="Pagination">
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full 
+                      border border-[#0D4A9A] text-[#0D4A9A] transition duration-200 
+                      hover:bg-[#0D4A9A] hover:text-white" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    1
+                </a>
+
+                <a href="#" aria-current="page" class="w-10 h-10 flex items-center justify-center text-sm font-bold 
+                      bg-[#0D4A9A] text-white rounded-full">
+                    2
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    3
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    4
+                </a>
+
+                <span class="text-gray-500 font-medium">...</span>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center text-sm font-medium 
+                      text-gray-700 rounded-full transition duration-200 
+                      hover:bg-gray-100">
+                    10
+                </a>
+
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full 
+                      border border-[#0D4A9A] text-[#0D4A9A] transition duration-200 
+                      hover:bg-[#0D4A9A] hover:text-white" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+            </nav>
+        </section>
+        <!-- END Pagination Tin tuc  -->
+
+    </div>
+
+
+    <footer class=" bg-[#0D4A9A] text-white pt-12 mt-20">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+            <!-- Logo + Info -->
+            <div>
+                <img src="/src/img/logo.svg" class="w-40 mb-4" alt="Logo" />
+                <p class="uppercase font-bold">POOL & COMPOSITE</p>
+                <ul class="mt-5 text-base space-y-2">
+                    <li>📍 Địa chỉ: 30 Hoa Lan, Phường Cầu Kiệu, TP.HCM</li>
+                    <li>📧 Email: pooltech.hns@gmail.com</li>
+                    <li>☎️ Hotline: 0983 804 445</li>
+                </ul>
+                <div class="register-email space-y-3 mt-2 w-full max-w-md">
+                    <h3 class="text-xl font-semibold">Đăng ký nhận email của chúng tôi</h3>
+
+                    <div class="relative">
+                        <input type="email"
+                            class="placeholder:text-gray-500 text-gray-500 w-full border border-gray-300 py-2 pl-4 pr-28 rounded focus:outline-none bg-white focus:border-blue-500"
+                            placeholder="Email address...">
+
+                        <button
+                            class="absolute  right-1 top-1/2 transform -translate-y-1/2 bg-[#0D4A9A] text-white  py-2 px-3 cursor-pointer rounded  transition text-sm">
+                            <img src="/src/img/Vector-right.svg" class="h-[17px]" alt="Vector-right">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Links -->
+            <div class="mx-auto">
+                <h3 class="font-bold mb-4 text-xl">Liên kết nhanh</h3>
+                <ul class="space-y-2 text-base">
+                    <li><a href="#" class="hover:underline">Giới thiệu</a></li>
+                    <li><a href="#" class="hover:underline">Hồ bơi</a></li>
+                    <li><a href="#" class="hover:underline">Composite</a></li>
+                    <li><a href="#" class="hover:underline">Tin tức</a></li>
+                    <li><a href="#" class="hover:underline">Dự án tiêu biểu</a></li>
+                    <li><a href="#" class="hover:underline">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <!-- Fanpage -->
+            <div class="h-[149px]">
+                <h4 class="font-bold mb-4 text-xl">Fanpage</h4>
+                <img src="/src/img/page-web.png" class="rounded-md h-[149px] w-full object-cover" />
+            </div>
+
+        </div>
+        <div class="mt-8">
+            <hr />
+        </div>
+        <div class="flex justify-center items-center text-sm h-[50px] w-full">
+            Copyright © 2025 Sagocomposite. Powered by HD Agency
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
