@@ -31,10 +31,11 @@ $member_list_table->prepare_items();
 
 <div class="wrap">
     <h1>Quản Lý Thành Viên Shop</h1>
-
     <!-- Nút thêm mới -->
     <button id="btn-add-member" class="button button-primary " style="margin-top: 10px;">➕ Thêm thành viên</button>
-
+    <div style="margin-top: 10px;">
+        <button id="export-excel" class="button button-primary">📤 Export Excel</button>
+    </div>
     <form method="post" autocomplete="off" id="member-list-form">
         <?php $member_list_table->search_box('Tìm kiếm Thành viên', 'member_search_id'); ?>
         <?php $member_list_table->display(); ?>
@@ -47,22 +48,22 @@ $member_list_table->prepare_items();
 
 <!-- Popup Form -->
 <div id="member-modal" style="display:none;">
-    <h2 id="modal-title" >Thêm Thành Viên</h2>
+    <h2 id="modal-title">Thêm Thành Viên</h2>
     <form id="member-form">
         <input type="hidden" name="ID" id="member_id">
 
         <table class="form-table">
             <tr>
                 <th><label for="name">Tên</label></th>
-                <td><input type="text" id="name" name="name" class="regular-text" required/></td>
+                <td><input type="text" id="name" name="name" class="regular-text" required /></td>
             </tr>
             <tr>
                 <th><label for="sdt">SĐT</label></th>
-                <td><input type="text" id="sdt" name="sdt" class="regular-text" required/></td>
+                <td><input type="text" id="sdt" name="sdt" class="regular-text" required /></td>
             </tr>
             <tr>
                 <th><label for="dia_chi">Địa chỉ</label></th>
-                <td><input type="text" id="dia_chi" name="dia_chi" class="regular-text" required/></td>
+                <td><input type="text" id="dia_chi" name="dia_chi" class="regular-text" required /></td>
             </tr>
             <tr>
                 <th><label for="gioi_tinh">Giới tính</label></th>
@@ -98,7 +99,7 @@ add_action('admin_footer', function () {
                     $("input#dia_chi").val(data.dia_chi);
                     $("input#gioi_tinh").val(data.gioi_tinh);
                 } else {
-                    $("input#member-form")[0].reset();
+                    $("#member-form")[0].reset();
                     $("input#member_id").val('');
                 }
             }
@@ -139,20 +140,42 @@ add_action('admin_footer', function () {
                 });
             });
 
+            $("#export-excel").on("click", function(e) {
+                e.preventDefault();
+                let url = ajaxurl + "?action=export_members_excel&_ajax_nonce=<?php echo wp_create_nonce('member_nonce'); ?>";
+                window.location.href = url;
+            });
+
             // Submit form (add/edit)
             $("#member-form").on("submit", function(e) {
                 e.preventDefault();
 
-                $.post(ajaxurl, {
-                    action: "save_member",
-                    data: $(this).serialize(),
-                    _ajax_nonce: "<?php echo wp_create_nonce('member_nonce'); ?>"
-                }, function(response) {
-                    alert(response.data);
-                    closeModal();
-                    location.reload();
-                });
+                try {
+                    $.post(ajaxurl, {
+                            action: "save_member",
+                            data: $(this).serialize(),
+                            _ajax_nonce: "<?php echo wp_create_nonce('member_nonce'); ?>"
+                        })
+                        .done(function(response) {
+                            if (response.success) {
+                                alert(response.data);
+                            } else {
+                                alert("❌ Lỗi xử lý: " + response.data);
+                                console.error(response.data);
+                            }
+                            closeModal();
+                            location.reload();
+                        })
+                        .fail(function(xhr, status, error) {
+                            console.error("AJAX Error:", error, xhr.responseText);
+                            alert("❌ AJAX lỗi: " + error);
+                        });
+                } catch (error) {
+                    console.error("Try-catch lỗi:", error);
+                    alert("❌ Lỗi không mong muốn trong AJAX!");
+                }
             });
+
         });
     </script>
 <?php
