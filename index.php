@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="checkin-form">
     <?php
     if (isset($_GET['member_id'])) {

@@ -213,7 +213,6 @@ jQuery(document).ready(function ($) {
       success: function (response) {
         if (response.success) {
           alert("Check-in thành công!");
-          // window.location.reload();
            window.location.href = myAjax.home_url;
         } else {
           alert("Lỗi Check-in: " + response.data);
