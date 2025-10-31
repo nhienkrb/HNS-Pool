@@ -1,0 +1,162 @@
+.checkin-form {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.checkin-form h2 {
+  font-size: 22px;
+  color: #215c99;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.checkin-form label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.checkin-form label span {
+  color: red;
+}
+.bib-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bib-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.map-btn {
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+  color: #215c99;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.map-btn:hover {
+  background: #215c99;
+  color: #fff;
+}
+
+.upload-box,
+.signature-box {
+  width: 180px;
+  height: 160px;
+  border: 1.8px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f9f9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-box:hover,
+.signature-box:hover {
+  background-color: #eef3fa;
+  border-color: #215c99;
+}
+
+.upload-box span,
+.signature-box span {
+  font-size: 40px;
+  color: #215c99;
+  opacity: 0.9;
+}
+
+.checkin-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  font-size: 15px;
+}
+.wrap-box {
+  display: flex;
+  justify-content: center;
+}
+.box-select-member{
+  padding: 5px;
+  border: 1px solid rgb(171, 171, 171);
+  border-radius: 10px;
+  width: 100%;
+}
+#member-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100002;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#camera-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Khoảng cách giữa các thành phần */
+  margin-top: 10px;
+}
+
+#my_camera {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 320px !important;
+  height: 240px !important;
+}
+
+#capture-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#preview {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100001;
+}
+
+#BIB-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

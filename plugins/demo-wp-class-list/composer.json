@@ -1,0 +1,6 @@
+{
+    "require": {
+        "openspout/openspout": "^4.28",
+        "endroid/qr-code": "^6.0"
+    }
+}
