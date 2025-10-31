@@ -25,3 +25,7 @@
   <h3>Giao diện feedback đã gửi chưa duyệt</h3>
   <img src="image5.png" width="600" alt="Cập nhật thông tin">
 </div>
+<div align="center">
+  <h3>Giao diện feedback tính trung bình sao</h3>
+  <img src="image6.png" width="600" alt="Cập nhật thông tin">
+</div>
