@@ -1,6 +1,7 @@
 <?php
 require_once get_template_directory() . '/include/handle_page_feedback.php';
 require_once get_template_directory() . '/include/handle_display_view_table.php';
+require_once get_template_directory() . '/include/api/api_demo.php';
 
 
 
