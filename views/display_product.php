@@ -7,80 +7,28 @@ $table = new Product_List_Table();
 if (isset($_POST['sync_toggle_auto']) && check_admin_referer('sync_action', 'sync_nonce')) {
     $opts = sync_product_get_options();
 
-    $opts['auto_sync'] = isset($_POST['auto_sync']) ? 1 : 0;
+    $opts['auto_sync'] = isset($_POST['auto_sync_to_db']) ? 1 : 0;      // Sheet → DB
+    $opts['auto_sync_to_sheet'] = isset($_POST['auto_sync_to_sheet']) ? 1 : 0; // DB → Sheet
     update_option('sync_options', $opts);
-
-    $msg = $opts['auto_sync']
-        ? ' Đã bật tự động đồng bộ hàng ngày.'
-        : ' Đã tắt tự động đồng bộ hàng ngày.';
-
+    $msg = 'Đã lưu cấu hình tự động đồng bộ.';
     echo '<div class="notice notice-success is-dismissible"><p>' . esc_html($msg) . '</p></div>';
 }
 
+
 if (isset($_POST['sync_run']) && check_admin_referer('sync_action', 'sync_nonce')) {
-    $res = sync_products();
+    $res = sync_products(); // Sheet → DB
     $message = sprintf(
-        'Đồng bộ xong: <b>%d thêm mới</b>, <b>%d cập nhật</b>, <b>%d giống nhau</b>, <b>%d lỗi</b>.',
+        'Đồng bộ Google Sheets → Web: <b>%d thêm mới</b>, <b>%d cập nhật</b>, <b>%d bỏ qua</b>, <b>%d lỗi</b>.',
         $res['inserted'],
         $res['updated'],
         $res['skipped'],
         $res['failed']
     );
-
-    if (!empty($res['errs'])) {
-        $message .= '<br><b>Các dòng lỗi:</b><pre style="background:#f8f8f8;padding:6px;border:1px solid #ccc;">' .
-            esc_html(print_r($res['errs'], true)) . '</pre>';
-    }
-
     echo '<div class="notice notice-success is-dismissible"><p>' . $message . '</p></div>';
 }
 
 $table->prepare_items();
 ?>
-
-<div class="wrap">
-    <h1 class="wp-heading-inline">Danh sách sản phẩm đã đồng bộ</h1>
-    <hr class="wp-header-end">
-
-    <form method="post">
-        <?php wp_nonce_field('sync_action', 'sync_nonce'); ?>
-
-        <?php
-        $opts = sync_product_get_options();
-        $is_auto = !empty($opts['auto_sync']);
-        ?>
-
-        <div style="display:flex;align-items:center;gap:10px;margin:10px 0;">
-            <label class="switch">
-                <input type="checkbox" name="auto_sync" value="1" <?php checked($is_auto, true); ?> />
-                <span class="slider round"></span>
-            </label>
-            <span><b>Tự động đồng bộ mỗi ngày</b></span>
-        </div>
-
-        <?php submit_button('Lưu thiết lập', 'secondary', 'sync_toggle_auto', false); ?>
-
-        <hr>
-
-        <div style="margin: 15px 0;">
-            <?php submit_button('Đồng bộ ngay', 'primary', 'sync_run', false); ?>
-            <a href="<?php echo esc_url(add_query_arg(['page' => $_REQUEST['page']])); ?>" class="button">Làm mới</a>
-        </div>
-
-        <p><b>Google Sheet:</b>
-            <code><?php
-                    echo esc_html($opts['sheet_id'] ?: 'Chưa cấu hình');
-                    ?></code>
-        </p>
-
-        <hr>
-
-        <input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>" />
-
-        <?php $table->display(); ?>
-    </form>
-</div>
-
 <style>
     .wp-list-table .column-price {
         text-align: right;
@@ -152,4 +100,248 @@ $table->prepare_items();
     .slider.round {
         border-radius: 34px;
     }
+
+    #modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999999;
+    }
+
+    #product-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000000;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        width: 480px;
+        max-width: 95%;
+    }
 </style>
+<div class="wrap">
+    <h1 class="wp-heading-inline">Danh sách sản phẩm đã đồng bộ</h1>
+    <hr class="wp-header-end">
+
+    <form method="post">
+        <?php wp_nonce_field('sync_action', 'sync_nonce'); ?>
+
+        <?php
+        $opts = sync_product_get_options();
+        $is_auto = !empty($opts['auto_sync']);
+        ?>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:10px;">
+            <label class="switch">
+                <input type="checkbox" name="auto_sync_to_db" value="1" <?php checked(!empty($opts['auto_sync']), true); ?> />
+                <span class="slider round"></span>
+            </label>
+            <span><b>Tự động Đồng bộ từ Google Sheets → DB (ưu tiên Sheet)</b></span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:10px; margin-bottom:10px;">
+            <label class="switch">
+                <input type="checkbox" name="auto_sync_to_sheet" value="1" <?php checked(!empty($opts['auto_sync_to_sheet']), true); ?> />
+                <span class="slider round"></span>
+            </label>
+            <span><b>Tự động Đồng bộ từ DB → Google Sheets</b></span>
+        </div>
+
+        <?php submit_button(' Lưu thiết lập', 'secondary', 'sync_toggle_auto', false); ?>
+</div>
+
+<hr>
+
+<div style="margin: 15px 0;">
+    <?php submit_button('Đồng bộ ngay Sheets → DB', 'primary', 'sync_run', false); ?>
+    <a href="<?php echo esc_url(add_query_arg(['page' => $_REQUEST['page']])); ?>" class="button">Làm mới</a>
+</div>
+
+<p><b>Google Sheet:</b>
+    <code><?php
+            echo esc_html($opts['sheet_id'] ?: 'Chưa cấu hình');
+            ?></code>
+</p>
+<hr>
+<input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>" />
+<?php $table->display(); ?>
+</form>
+
+<!-- Overlay -->
+<div id="modal-overlay" style="display:none;"></div>
+
+<!-- Modal Popup -->
+<div id="product-modal" style="display:none;">
+    <h2 id="modal-title">Thêm sản phẩm</h2>
+    <form id="product-form">
+        <input type="hidden" name="id" id="product_id">
+
+        <table class="form-table">
+            <tr>
+                <th><label for="external_id">External Id</label></th>
+                <td><input type="text" id="external_id" name="external_id" required></td>
+            </tr>
+            <tr>
+                <th><label for="name">Tên sản phẩm</label></th>
+                <td><input type="text" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <th><label for="category">Danh mục</label></th>
+                <td><input type="text" id="category" name="category"></td>
+            </tr>
+            <tr>
+                <th><label for="price">Giá</label></th>
+                <td><input type="number" id="price" name="price" step="0.01"></td>
+            </tr>
+            <tr>
+                <th><label for="description">Mô tả</label></th>
+                <td><textarea id="description" name="description"></textarea></td>
+            </tr>
+            <tr>
+                <th><label for="content">Nội dung</label></th>
+                <td><textarea id="content" name="content"></textarea></td>
+            </tr>
+        </table>
+
+        <p class="submit">
+            <button type="submit" class="button button-primary">💾 Lưu</button>
+            <button type="button" class="button close-modal">Đóng</button>
+        </p>
+    </form>
+</div>
+
+
+<?php
+add_action('admin_footer', function () { ?>
+    <script>
+        jQuery(document).ready(function($) {
+
+            //  Mở popup 
+            function openModal(title, data = null) {
+                $("#modal-title").text(title);
+                $("#product-modal, #modal-overlay").fadeIn(200);
+
+                if (data) {
+                    $("input#product_id").val(data.id || "");
+                    $("input#external_id").val(data.external_id || "");
+                    $("input#name").val(data.name || "");
+                    $("input#category").val(data.category || "");
+                    $("input#price").val(data.price || "");
+                    $("textarea#description").val(data.description || "");
+                    $("#content").val(data.content || "");
+                } else {
+                    $("#product-form")[0].reset();
+                    $("#product_id").val("");
+                }
+            }
+
+            //  Đóng popup 
+            function closeModal() {
+                $("#product-modal, #modal-overlay").fadeOut(200);
+            }
+
+            //  Nút thêm mới 
+            $("#btn-add-product").on("click", function() {
+                openModal("Thêm sản phẩm mới");
+            });
+
+            //  Nút chỉnh sửa
+            $(document).on("click", ".edit-product", function() {
+                const productJson = $(this).attr("data-product");
+                let product = {};
+                try {
+                    product = JSON.parse(productJson);
+                } catch (e) {
+                    console.warn("JSON parse lỗi:", e);
+                }
+                openModal("Chỉnh sửa sản phẩm", product);
+            });
+
+            //  Nút xóa  
+            $(document).on("click", ".delete-product", function(e) {
+                e.preventDefault();
+                const button = $(this);
+                const id = button.data("id");
+                if (!confirm(" Bạn có chắc chắn muốn xóa sản phẩm này và đồng bộ Google Sheet?")) {
+                    return;
+                }
+                button.prop("disabled", true).text(" Xóa...");
+                $.ajax({
+                    url: ajaxurl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        action: "sync_delete_product",
+                        id: id,
+                        _ajax_nonce: "<?php echo wp_create_nonce('sync_delete_nonce'); ?>"
+                    },
+                    success: function(res) {
+                        if (res.success) {
+                            // Xóa dòng khỏi bảng
+                            button.closest("tr").fadeOut(300, function() {
+                                $(this).remove();
+                            });
+
+                            $("<div class='notice notice-success inline'><p>" + res.data.message + "</p></div>")
+                                .appendTo(".wrap")
+                                .delay(3000)
+                                .fadeOut(500, function() {
+                                    $(this).remove();
+                                });
+                        } else {
+                            alert( (res.data?.message || "Lỗi khi xóa sản phẩm!"));
+                        }
+                    },
+                    error: function() {
+                        alert("Lỗi kết nối máy chủ!");
+                    },
+                    complete: function() {
+                        button.prop("disabled", false).text("🗑️");
+                    }
+                });
+            });
+
+            $(".close-modal, #modal-overlay").on("click", closeModal);
+
+            //  Gửi AJAX khi lưu sản phẩm 
+            $("#product-form").on("submit", function(e) {
+                e.preventDefault();
+
+                const formData = $(this).serialize();
+                $.ajax({
+                    url: ajaxurl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        action: "sync_save_product",
+                        data: formData,
+                        _ajax_nonce: "<?php echo wp_create_nonce('sync_save_nonce'); ?>"
+                    },
+                    success: function(res) {
+                        if (res.success) {
+
+                            // Hiển thị thông báo thành công
+                            $("<div class='notice notice-success inline'><p>" + res.data.message + "</p></div>")
+                                .appendTo(".wrap")
+                                .delay(2000)
+                                .fadeOut(500, function() {
+                                    $(this).remove();
+                                });
+                            location.reload();
+                            closeModal();
+                        } else {
+                            alert(+(res.data?.message || "Lỗi không xác định"));
+                        }
+                    },
+                    error: function(err) {
+                        console.error(err);
+                        alert("Lỗi kết nối máy chủ!");
+                    }
+                });
+            });
+        });
+    </script>
+<?php });

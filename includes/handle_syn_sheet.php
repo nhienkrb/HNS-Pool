@@ -6,7 +6,8 @@ function sync_product_get_options()
     return wp_parse_args(get_option('sync_options', []), [
         'sheet_id' => '12g2uTeb3Kd5MohejwvhvHHeCRenOJ0pS0ljzmG-g8kQ',
         'range' => 'Trang tính1!A1:G1000',
-        'auto_sync' => 1
+        'auto_sync' => 1,
+        'auto_sync_db_to_sheet' => 0
     ]);
 }
 
@@ -73,7 +74,10 @@ function sync_row_hash($row)
 {
     $fields = ['external_id', 'name', 'description', 'content', 'category', 'price', 'updated_at'];
     $concat = '';
-    foreach ($fields as $f) $concat .= '|' . (string)($row[$f] ?? '');
+    foreach ($fields as $f) {
+        $val = isset($row[$f]) ? strtolower(trim((string)$row[$f])) : '';
+        $concat .= '|' . $val;
+    }
     return hash('sha256', $concat);
 }
 
@@ -126,4 +130,59 @@ function sync_products()
         }
     }
     return compact('inserted', 'updated', 'skipped', 'failed', 'errs');
+}
+
+
+function sync_to_sheets()
+{
+    global $wpdb;
+    $table = $wpdb->prefix . 'syn_products';
+
+    $opts = sync_product_get_options();
+    if ($opts['auto_sync_to_sheet'] === 0) return;
+
+
+    $sheet_id = $opts['sheet_id'] ?? '';
+    if (!$sheet_id) return ['error' => 'Chưa cấu hình sheet ID'];
+
+    $credentials = plugin_dir_path(__DIR__) . 'config/credentials.json';
+    if (!file_exists($credentials)) {
+        return ['error' => 'Không tìm thấy credentials.json'];
+    }
+
+    $client = new Google\Client();
+    $client->setApplicationName('Google Sheets Sync');
+    $client->setScopes([Google\Service\Sheets::SPREADSHEETS]);
+    $client->setAuthConfig($credentials);
+    $client->setAccessType('offline');
+
+    $service = new Google\Service\Sheets($client);
+
+    $rows = $wpdb->get_results("SELECT * FROM $table ORDER BY id ASC", ARRAY_A);
+    if (!$rows) return ['error' => 'Không có dữ liệu để đồng bộ'];
+
+    $headers = ['external_id', 'name', 'description', 'content', 'category', 'price', 'updated_at'];
+    $data = [$headers];
+
+    foreach ($rows as $r) {
+        $data[] = [
+            $r['external_id'],
+            $r['name'],
+            $r['description'],
+            $r['content'],
+            $r['category'],
+            $r['price'],
+            $r['updated_at']
+        ];
+    }
+
+    $service->spreadsheets_values->clear($sheet_id, 'Trang tính1!A1:G', new Google\Service\Sheets\ClearValuesRequest());
+
+    $range = 'Trang tính1!A1:G' . count($data);
+    $body = new Google\Service\Sheets\ValueRange(['values' => $data]);
+    $service->spreadsheets_values->update($sheet_id, $range, $body, ['valueInputOption' => 'RAW']);
+
+    error_log('sync_to_sheets: Đã đẩy ' . (count($rows)) . ' dòng lên Google Sheet.');
+
+    return ['status' => 'success', 'count' => count($rows)];
 }

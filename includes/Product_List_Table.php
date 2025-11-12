@@ -1,6 +1,6 @@
 <?php
 if (!class_exists('WP_List_Table')) {
-    require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+    require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
 class Product_List_Table extends WP_List_Table
@@ -12,23 +12,23 @@ class Product_List_Table extends WP_List_Table
         parent::__construct([
             'singular' => 'product',
             'plural'   => 'products',
-            'ajax'     => false
+            'ajax'     => false,
         ]);
     }
 
     function get_columns()
     {
-        $columns = array(
-            'cb'            => '<input type="checkbox" />',
-            'id'            => "ID",
-            'external_id'   => "External ID",
-            'name'          => "Tên sản phẩm",
-            'category'      => "Danh mục",
-            'price'         => "Giá",
-            'updated_at'    => "Cập nhật",
-            'created_at'    => "Tạo lúc"
-        );
-        return $columns;
+        return [
+            'cb'          => '<input type="checkbox" />',
+            'id'          => "ID",
+            'external_id' => "External ID",
+            'name'        => "Tên sản phẩm",
+            'category'    => "Danh mục",
+            'price'       => "Giá",
+            'updated_at'  => "Cập nhật",
+            'created_at'  => "Tạo lúc",
+            'actions'     => "Thao tác",
+        ];
     }
 
     public function column_default($item, $column_name)
@@ -42,6 +42,20 @@ class Product_List_Table extends WP_List_Table
             case 'updated_at':
             case 'created_at':
                 return esc_html($item[$column_name]);
+
+            case 'actions':
+                $json_data = htmlspecialchars(json_encode($item, JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
+                $id = esc_attr($item['id']);
+
+                return sprintf(
+                    '<button type="button" class="button edit-product" data-product="%s" title="%s">✏️</button>
+                     <button type="button" class="button delete-product" data-id="%s" title="%s">🗑️</button>',
+                    $json_data,
+                    esc_attr__('Sửa sản phẩm', 'gsync'),
+                    $id,
+                    esc_attr__('Xóa sản phẩm', 'sync')
+                );
+
             default:
                 return '';
         }
@@ -52,57 +66,55 @@ class Product_List_Table extends WP_List_Table
         return sprintf(
             '<input type="checkbox" name="%1$s[]" value="%2$s" />',
             $this->_args['singular'],
-            $item['id']
+            esc_attr($item['id'])
         );
     }
 
     protected function get_sortable_columns()
     {
-        $sort_table_columns = array(
-            'id' => array('id', false),
-            'external_id' => array('external_id', false),
-            'name' => array('name', false),
-            'category' => array('category', false),
-            'price' => array('price', false),
-            'updated_at' => array('updated_at', false),
-            'created_at' => array('created_at', false),
-        );
-        return $sort_table_columns;
+        return [
+            'id'          => ['id', false],
+            'external_id' => ['external_id', false],
+            'name'        => ['name', false],
+            'category'    => ['category', false],
+            'price'       => ['price', false],
+            'updated_at'  => ['updated_at', false],
+            'created_at'  => ['created_at', false],
+        ];
     }
 
     function usort_reorder($a, $b)
     {
-        $orderby = (!empty($_GET['orderby'])) ? $_GET['orderby'] : 'id';
-        $order = (!empty($_GET['order'])) ? $_GET['order'] : 'desc';
-        $result = strcmp($a[$orderby], $b[$orderby]);
+        $orderby = $_GET['orderby'] ?? 'id';
+        $order   = $_GET['order'] ?? 'desc';
+        $result  = strcmp($a[$orderby], $b[$orderby]);
         return ($order === 'asc') ? $result : -$result;
     }
 
     public function extra_tablenav($which)
     {
-        if ($which == "top") {
+        if ($which === "top") {
             $categories = $this->getCategories();
-            $selected_category = isset($_REQUEST['category_filter']) ? sanitize_text_field($_REQUEST['category_filter']) : '';
+            $selected_category = isset($_REQUEST['category_filter'])
+                ? sanitize_text_field($_REQUEST['category_filter'])
+                : '';
 ?>
             <div class="alignleft actions">
                 <select name="category_filter">
                     <option value="">-- Tất cả danh mục --</option>
                     <?php
-                    if (!empty($categories)) {
-                        foreach ($categories as $cat) {
-                            $cat_label = ucfirst(esc_html($cat));
-                            $is_selected = selected($selected_category, $cat, false);
-                            printf(
-                                '<option value="%s" %s>%s</option>',
-                                esc_attr($cat),
-                                $is_selected,
-                                $cat_label
-                            );
-                        }
+                    foreach ($categories as $cat) {
+                        printf(
+                            '<option value="%s" %s>%s</option>',
+                            esc_attr($cat),
+                            selected($selected_category, $cat, false),
+                            esc_html(ucfirst($cat))
+                        );
                     }
                     ?>
                 </select>
                 <?php submit_button('Lọc', '', 'filter_action', false); ?>
+                <button type="button" class="button button-primary" id="btn-add-product">➕ Thêm mới</button>
             </div>
 <?php
         }
@@ -112,26 +124,28 @@ class Product_List_Table extends WP_List_Table
     {
         $this->table_data = $this->get_table_data();
 
-        $columns = $this->get_columns();
-        $hidden =  array();
+        $columns  = $this->get_columns();
+        $hidden   = [];
         $sortable = $this->get_sortable_columns();
-        $primary  = 'name';
+        $this->_column_headers = [$columns, $hidden, $sortable, 'name'];
 
-        $this->_column_headers = array($columns, $hidden, $sortable, $primary);
+        usort($this->table_data, [$this, 'usort_reorder']);
 
-        usort($this->table_data, array(&$this, 'usort_reorder'));
-
-        $per_page = $this->get_items_per_page('products_per_page', 2);
+        $per_page     = $this->get_items_per_page('products_per_page', 10);
         $current_page = $this->get_pagenum();
-        $total_items = count($this->table_data);
+        $total_items  = count($this->table_data);
 
-        $this->table_data = array_slice($this->table_data, (($current_page - 1) * $per_page), $per_page);
+        $this->table_data = array_slice(
+            $this->table_data,
+            (($current_page - 1) * $per_page),
+            $per_page
+        );
 
-        $this->set_pagination_args(array(
+        $this->set_pagination_args([
             'total_items' => $total_items,
             'per_page'    => $per_page,
-            'total_pages' => ceil($total_items / $per_page)
-        ));
+            'total_pages' => ceil($total_items / $per_page),
+        ]);
 
         $this->items = $this->table_data;
     }
@@ -161,4 +175,5 @@ class Product_List_Table extends WP_List_Table
         $table = $wpdb->prefix . 'syn_products';
         return $wpdb->get_col("SELECT DISTINCT category FROM {$table} ORDER BY category ASC");
     }
-}; ?>
+}
+?>

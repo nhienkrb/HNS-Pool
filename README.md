@@ -1,4 +1,11 @@
 <div align="center">
+  <h3>Đồng bộ DB -> Sheet</h3>
+  <img src="imagenew.png" width="600" alt="Tổng quan">
+</div>
+
+---
+
+<div align="center">
   <h3>Đồng bộ</h3>
   <img src="image.png" width="600" alt="Tổng quan">
 </div>
