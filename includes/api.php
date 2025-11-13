@@ -1,6 +1,4 @@
 <?php
-
-
 require_once plugin_dir_path(__FILE__) . 'handle_syn_sheet.php';
 
 add_action('rest_api_init', function () {
@@ -8,38 +6,49 @@ add_action('rest_api_init', function () {
     register_rest_route('sync/v1', '/preview', [
         'methods'  => 'GET',
         'permission_callback' => '__return_true',
-        'callback' => function () {
-            $rows = sync_read_sheet();
+        'callback' => function (WP_REST_Request $req) {
+
+            $tab = $req->get_param('tab');
+            $opts = sync_product_get_options();
+
+            $range = $tab ? ($tab . '!A1:G1000') : $opts['range'];
+            $rows = sync_read_sheet($opts['sheet_id'], $range);
+
             $preview = [];
             foreach ($rows as $r) {
                 $errors = sync_validate_row($r);
                 $preview[] = [
-                    'data' => $r,
+                    'data'   => $r,
                     'errors' => $errors,
-                    'valid' => empty($errors)
+                    'valid'  => empty($errors)
                 ];
             }
+
             return rest_ensure_response($preview);
         }
     ]);
+
 
     register_rest_route('sync/v1', '/products', [
         'methods'  => 'POST',
         'permission_callback' => '__return_true',
         'callback' => function () {
-            $res = sync_products();
-            return rest_ensure_response($res);
+            return rest_ensure_response(sync_products());
         }
     ]);
 
+
     register_rest_route('sync/v1', '/push', [
-        'methods' => 'POST',
+        'methods'  => 'POST',
         'permission_callback' => '__return_true',
-        'callback' => function () {
+        'callback' => function (WP_REST_Request $req) {
+
             if (!function_exists('sync_to_sheets')) {
-                return new WP_Error('no_function', 'Hàm sync_to_sheets() chưa khởi tạo');
+                return new WP_Error('missing_function', 'Hàm sync_to_sheets() chưa được định nghĩa');
             }
-            $res = sync_to_sheets();
+
+            $tab = sanitize_text_field($req->get_param('tab') ?? '');
+            $res = sync_to_sheets($tab);
             return rest_ensure_response($res);
         }
     ]);
@@ -51,6 +60,11 @@ add_action('wp_ajax_sync_save_product', function () {
     global $wpdb;
     $table = $wpdb->prefix . 'syn_products';
     parse_str($_POST['data'], $data);
+
+    $selected_tab = isset($_POST['tab']) ? sanitize_text_field(wp_unslash($_POST['tab'])) : '';
+    if ('' === $selected_tab) {
+        wp_send_json_error(['message' => 'Vui lòng chọn Tab Sheet trước khi lưu sản phẩm.']);
+    }
 
     $row = [
         'external_id'        => sanitize_text_field($data['external_id']),
@@ -73,7 +87,10 @@ add_action('wp_ajax_sync_save_product', function () {
     }
 
     if (function_exists('sync_to_sheets')) {
-        sync_to_sheets();
+        $sync_result = sync_to_sheets($selected_tab);
+        if (is_array($sync_result) && !empty($sync_result['error'])) {
+            wp_send_json_error(['message' => 'Đã lưu sản phẩm nhưng lỗi đồng bộ Google Sheet: ' . $sync_result['error']]);
+        }
     }
 
     wp_send_json_success([
@@ -92,6 +109,11 @@ add_action('wp_ajax_sync_delete_product', function () {
         wp_send_json_error(['message' => 'Thiếu ID sản phẩm cần xóa']);
     }
 
+    $selected_tab = isset($_POST['tab']) ? sanitize_text_field(wp_unslash($_POST['tab'])) : '';
+    if ('' === $selected_tab) {
+        wp_send_json_error(['message' => 'Vui lòng chọn Tab Sheet trước khi xóa sản phẩm.']);
+    }
+
     global $wpdb;
     $table = $wpdb->prefix . 'syn_products';
     $id = intval($_POST['id']);
@@ -102,7 +124,7 @@ add_action('wp_ajax_sync_delete_product', function () {
         wp_send_json_error(['message' => 'Không thể xóa sản phẩm (có thể ID không tồn tại)']);
     }
 
-    $res = sync_to_sheets();
+    $res = sync_to_sheets($selected_tab);
     if (!empty($res['error'])) {
         wp_send_json_error(['message' => 'Đã xóa sản phẩm nhưng lỗi khi đồng bộ Sheet: ' . $res['error']]);
     }

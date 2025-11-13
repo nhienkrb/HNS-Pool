@@ -3,7 +3,8 @@ require_once plugin_dir_path(__DIR__) . 'includes/Product_List_Table.php';
 require_once plugin_dir_path(__DIR__) . 'includes/handle_syn_sheet.php';
 
 $table = new Product_List_Table();
-
+$tabs = get_tabs_sheet();
+$selected_tab = isset($_REQUEST['tabs-sheet']) ? sanitize_text_field($_REQUEST['tabs-sheet']) : '';
 if (isset($_POST['sync_toggle_auto']) && check_admin_referer('sync_action', 'sync_nonce')) {
     $opts = sync_product_get_options();
 
@@ -156,9 +157,26 @@ $table->prepare_items();
 <hr>
 
 <div style="margin: 15px 0;">
+    <select name="tabs-sheet">
+        <option value="">-- Tất cả Tab Sheet --</option>
+        <?php
+        if (!empty($tabs)) {
+            foreach ($tabs as $tab) {
+                printf(
+                    '<option value="%s" %s>%s</option>',
+                    esc_attr($tab),
+                    selected($selected_tab,$tab,false),
+                    esc_html($tab)
+                );  
+            }
+        }
+        ?>
+    </select>
+
     <?php submit_button('Đồng bộ ngay Sheets → DB', 'primary', 'sync_run', false); ?>
     <a href="<?php echo esc_url(add_query_arg(['page' => $_REQUEST['page']])); ?>" class="button">Làm mới</a>
 </div>
+
 
 <p><b>Google Sheet:</b>
     <code><?php
@@ -219,6 +237,10 @@ add_action('admin_footer', function () { ?>
     <script>
         jQuery(document).ready(function($) {
 
+            function getSelectedTab() {
+                return $("select[name='tabs-sheet']").val() || "";
+            }
+
             //  Mở popup 
             function openModal(title, data = null) {
                 $("#modal-title").text(title);
@@ -265,6 +287,13 @@ add_action('admin_footer', function () { ?>
                 e.preventDefault();
                 const button = $(this);
                 const id = button.data("id");
+                const currentTab = getSelectedTab();
+
+                if (!currentTab) {
+                    alert("Vui lòng chọn Tab Sheet trước khi xóa sản phẩm.");
+                    return;
+                }
+
                 if (!confirm(" Bạn có chắc chắn muốn xóa sản phẩm này và đồng bộ Google Sheet?")) {
                     return;
                 }
@@ -276,6 +305,7 @@ add_action('admin_footer', function () { ?>
                     data: {
                         action: "sync_delete_product",
                         id: id,
+                        tab: currentTab,
                         _ajax_nonce: "<?php echo wp_create_nonce('sync_delete_nonce'); ?>"
                     },
                     success: function(res) {
@@ -292,7 +322,7 @@ add_action('admin_footer', function () { ?>
                                     $(this).remove();
                                 });
                         } else {
-                            alert( (res.data?.message || "Lỗi khi xóa sản phẩm!"));
+                            alert((res.data?.message || "Lỗi khi xóa sản phẩm!"));
                         }
                     },
                     error: function() {
@@ -311,6 +341,13 @@ add_action('admin_footer', function () { ?>
                 e.preventDefault();
 
                 const formData = $(this).serialize();
+                const currentTab = getSelectedTab();
+
+                if (!currentTab) {
+                    alert("Vui lòng chọn Tab Sheet trước khi lưu sản phẩm.");
+                    return;
+                }
+
                 $.ajax({
                     url: ajaxurl,
                     type: "POST",
@@ -318,6 +355,7 @@ add_action('admin_footer', function () { ?>
                     data: {
                         action: "sync_save_product",
                         data: formData,
+                        tab: currentTab,
                         _ajax_nonce: "<?php echo wp_create_nonce('sync_save_nonce'); ?>"
                     },
                     success: function(res) {

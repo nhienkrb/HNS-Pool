@@ -51,6 +51,57 @@ function sync_read_sheet($sheet_id = '12g2uTeb3Kd5MohejwvhvHHeCRenOJ0pS0ljzmG-g8
     return $out;
 }
 
+function get_tabs_sheet($spreadsheet_id = '12g2uTeb3Kd5MohejwvhvHHeCRenOJ0pS0ljzmG-g8kQ')
+{
+    if (!$spreadsheet_id) {
+        $opts = sync_product_get_options();
+        $spreadsheet_id = $opts['sheet_id'];
+    }
+
+    $credentials = plugin_dir_path(__DIR__) . 'config/credentials.json';
+    if (!file_exists($credentials)) {
+        error_log(' Không tìm thấy credentials.json');
+        return [];
+    }
+
+    $client = new Google\Client();
+    $client->setApplicationName('Google Sheets Sync');
+    $client->setScopes([Google\Service\Sheets::SPREADSHEETS_READONLY]);
+    $client->setAuthConfig($credentials);
+    $client->setAccessType('offline');
+
+    $service = new Google\Service\Sheets($client);
+
+    try {
+        $spreadsheet = $service->spreadsheets->get($spreadsheet_id);
+    } catch (Exception $e) {
+        error_log(' Lỗi khi đọc spreadsheet: ' . $e->getMessage());
+        return [];
+    }
+
+    $tabs = [];
+    foreach ($spreadsheet->getSheets() as $sheet) {
+        $tabs[] = $sheet->getProperties()->getTitle();
+    }
+
+    return $tabs;
+}
+
+function sync_extract_tab_from_range($range)
+{
+    if (empty($range)) {
+        return '';
+    }
+
+    if (false === strpos($range, '!')) {
+        return trim($range);
+    }
+
+    [$tab] = explode('!', $range, 2);
+
+    return trim($tab);
+}
+
 
 function sync_validate_row($row)
 {
@@ -85,8 +136,17 @@ function sync_products()
 {
     global $wpdb;
     $opts = sync_product_get_options();
-    if (empty($opts['sheet_id'])) return ['error' => 'Chưa cấu hình Sheet ID'];
-    $rows = sync_read_sheet();
+    if (empty($opts['sheet_id']))
+        return ['error' => 'Chưa cấu hình Sheet ID'];
+
+    $selected_tab = isset($_POST['tabs-sheet']) ? sanitize_text_field($_POST['tabs-sheet']) : '';
+
+    $range = $selected_tab
+        ? ($selected_tab . '!A1:G1000')
+        : $opts['range'];
+
+    $rows = sync_read_sheet($opts['sheet_id'], $range);
+
     $table = $wpdb->prefix . 'syn_products';
 
     $inserted = 0;
@@ -96,15 +156,20 @@ function sync_products()
     $errs = [];
 
     foreach ($rows as $idx => $row) {
+
         $errors = sync_validate_row($row);
         if ($errors) {
             $failed++;
             $errs[$idx + 2] = $errors;
             continue;
         }
+
         $hash = sync_row_hash($row);
 
-        $exists = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE external_id=%s", $row['external_id']), ARRAY_A);
+        $exists = $wpdb->get_row(
+            $wpdb->prepare("SELECT * FROM $table WHERE external_id=%s", $row['external_id']),
+            ARRAY_A
+        );
 
         $row_db = [
             'external_id' => $row['external_id'],
@@ -129,11 +194,12 @@ function sync_products()
             }
         }
     }
+
     return compact('inserted', 'updated', 'skipped', 'failed', 'errs');
 }
 
 
-function sync_to_sheets()
+function sync_to_sheets($target_tab = '')
 {
     global $wpdb;
     $table = $wpdb->prefix . 'syn_products';
@@ -158,6 +224,14 @@ function sync_to_sheets()
 
     $service = new Google\Service\Sheets($client);
 
+    $tab_name = sanitize_text_field($target_tab);
+    if ('' === $tab_name) {
+        $tab_name = sync_extract_tab_from_range($opts['range'] ?? '');
+    }
+    if ('' === $tab_name) {
+        $tab_name = 'Trang tính1';
+    }
+
     $rows = $wpdb->get_results("SELECT * FROM $table ORDER BY id ASC", ARRAY_A);
     if (!$rows) return ['error' => 'Không có dữ liệu để đồng bộ'];
 
@@ -176,9 +250,10 @@ function sync_to_sheets()
         ];
     }
 
-    $service->spreadsheets_values->clear($sheet_id, 'Trang tính1!A1:G', new Google\Service\Sheets\ClearValuesRequest());
+    $range_prefix = $tab_name . '!A1:G';
+    $service->spreadsheets_values->clear($sheet_id, $range_prefix, new Google\Service\Sheets\ClearValuesRequest());
 
-    $range = 'Trang tính1!A1:G' . count($data);
+    $range = $tab_name . '!A1:G' . count($data);
     $body = new Google\Service\Sheets\ValueRange(['values' => $data]);
     $service->spreadsheets_values->update($sheet_id, $range, $body, ['valueInputOption' => 'RAW']);
 
