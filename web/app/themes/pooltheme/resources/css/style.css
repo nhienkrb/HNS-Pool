@@ -1,0 +1,6 @@
+@import "swiper/swiper-bundle.css";
+.swiper-navigation-icon {
+  padding: 10px;
+  margin: 5px;
+  color: #949494;
+}
