@@ -6,37 +6,6 @@
   <p>  
   Cấu Trúc thư mục
   </p>
-  .
-├── app/
-│   └── View/
-│       └── Composers/ 
-├── public/
-├── resources/
-│   ├── fonts/
-│   ├── images/ #ảnh
-│   ├── js/ #chứa js ui
-│   └── views/
-│       ├── blog/
-│       ├── components/ # Các thành phần tái sử dụng
-│       │   ├── button.blade.php
-│       │   └── card.blade.php 
-│       ├── forms/
-│       ├── layouts/
-│       ├── pages/
-│       ├── partials/
-│       ├── products/
-│       │   ├── archive-product.blade.php
-│       │   └── single-product.blade.php
-│       ├── sections/ # Các phần của  page
-│       │   ├── about/
-│       │   ├── advisory/
-│       │   ├── home/
-│       │   ├── news/
-│       │   ├── pool/
-│       │   └── projects/
-│       └── ├── single.blade.php
-│           ├── 404.blade.php
-│           ├── front-page.blade.php
-│           └── index.blade.php
-└── composer.json,...
+ <img width="915" height="730" alt="image" src="https://github.com/user-attachments/assets/a1ac6c61-e54d-49bc-8311-a59c631a852a" />
+
 </p>
