@@ -1,0 +1,17 @@
+{
+  "name": "theme-pool-vendor/my-hybrid-theme",
+  "description": "Một theme Classic WP với Composer và Tailwind.",
+  "type": "wordpress-theme",
+  "autoload": {
+    "psr-4": {
+      "ThemePool\\": "inc/"
+    }
+  },
+  "authors": [
+    {
+      "name": "ngo nhien",
+      "email": "nhiennkrb@email.com"
+    }
+  ],
+  "require": {}
+}
