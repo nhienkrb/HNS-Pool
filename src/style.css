@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "swiper/swiper-bundle.css";
+.swiper-navigation-icon {
+  color: #949494;
+  border: 1px solid rgb(169, 172, 169);
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.barlow-bold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.img-clip-path-1 {
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 71%, 0% 100%);
+}
+.swiper-pagination-bullet {
+  background: #F95342 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #F95342 !important;
+}
+
+@theme {
+  --font-hd: "SVN-Poppins";
+  --color-xanh: #0c8e3a;
+  --color-docam: #fe5546;
+}
+.blob.pos-right {
+  right: 0;
+}
+.blob {
+  position: absolute;
+  z-index: -1;
+  mix-blend-mode: multiply;
+  top: -5%;
+}
+
