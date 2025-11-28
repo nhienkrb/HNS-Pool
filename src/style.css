@@ -25,6 +25,9 @@
 .swiper-pagination-bullet-active {
   background: #F95342 !important;
 }
+.shadow-full{
+ box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
 
 @theme {
   --font-hd: "SVN-Poppins";
