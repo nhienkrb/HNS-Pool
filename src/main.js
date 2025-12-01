@@ -3,25 +3,32 @@ import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
 new Swiper(".linhvuc-swiper", {
-  slidesPerView: 2,
-  spaceBetween: 16,
-  grabCursor: true,
-  breakpoints: {
-    640: {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 2.5,
-      spaceBetween: 24,
-    },
-  },
+  spaceBetween: 20,
   navigation: {
     nextEl: ".linhvuc-next",
     prevEl: ".linhvuc-prev",
   },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      loop: true,
+      allowTouchMove: true,
+    },
+    640: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      loop: true,
+      allowTouchMove: true,
+    },
+    768: {
+      slidesPerView: 2.3,
+      slidesPerGroup: 1,
+      loop: true,
+      allowTouchMove: true,
+    },
+  },
 });
-
 new Swiper(".duan-swiper", {
   effect: "cards",
   grabCursor: true,
@@ -77,11 +84,10 @@ new Swiper(".related-projects-swiper", {
   grabCursor: true,
   breakpoints: {
     768: { slidesPerView: 2, spaceBetween: 20 },
-    1024:{ slidesPerView: 3, spaceBetween: 24 },
+    1024: { slidesPerView: 3, spaceBetween: 24 },
   },
   navigation: {
     nextEl: ".related-projects-next",
     prevEl: ".related-projects-prev",
   },
 });
-

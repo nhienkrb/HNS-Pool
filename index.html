@@ -12,7 +12,7 @@
   <!-- HEADER -->
   <header class="w-full">
     <nav class="bg-neutral-primary">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
+      <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
 
         <div class="relative flex items-center">
           <div class="absolute w-[90px] h-[68px] rounded-b-lg"
@@ -28,13 +28,13 @@
           <div class="px-4 py-3">
             <div class="flex items-center">
               <ul class="flex flex-row font-medium mt-0 space-x-6 text-sm">
-                <li><a href="index.html" class="text-heading no-underline text-main font-bold active-nav">Trang chủ</a>
+                <li><a href="./index.html" class="text-heading no-underline text-main font-bold active-nav">Trang chủ</a>
                 </li>
-                <li><a href="about.html" class="text-heading no-underline ">Về Gia Phan</a></li>
-                <li><a href="service.html" class="text-heading no-underline ">Dịch vụ</a></li>
-                <li><a href="project.html" class="text-heading no-underline ">Dự án</a></li>
-                <li><a href="news.html" class="text-heading no-underline ">Tin tức</a></li>
-                <li><a href="contact.html" class="text-heading no-underline">Liên hệ</a></li>
+                <li><a href="src/about.html" class="text-heading no-underline ">Về Gia Phan</a></li>
+                <li><a href="src/service.html" class="text-heading no-underline ">Dịch vụ</a></li>
+                <li><a href="src/project.html" class="text-heading no-underline ">Dự án</a></li>
+                <li><a href="src/news.html" class="text-heading no-underline ">Tin tức</a></li>
+                <li><a href="src/contact.html" class="text-heading no-underline">Liên hệ</a></li>
               </ul>
             </div>
           </div>
@@ -59,7 +59,7 @@
     </nav>
 
     <nav class="bg-neutral-secondary-soft border-y border-default block sm:hidden font-hd">
-      <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="container mx-auto px-4 py-3">
         <div class="flex items-center justify-center">
           <ul class="flex flex-row font-medium mt-0 space-x-6 text-sm">
             <li><a href="#" class="text-heading no-underline text-main font-bold active-nav">Trang chủ</a></li>
@@ -74,7 +74,7 @@
 
   <!-- HERO / BANNER -->
   <section class="mt-4">
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="container mx-auto px-4">
       <div class="relative">
         <img src="public/img/banner-home.svg" alt="" class="w-full h-auto">
 
@@ -84,7 +84,8 @@
                  text-[clamp(1.1rem,4vw,2.3rem)] ">
             LONGWELL - Đồng Nai
           </h1>
-          <div class="flex items-center justify-center w-5  h-5 sm:w-10 sm:h-10 border border-main rounded-full bg-white/80">
+          <div
+            class="flex items-center justify-center w-5  h-5 sm:w-10 sm:h-10 border border-main rounded-full bg-white/80">
             <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               stroke="#A41E22">
               <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
@@ -104,7 +105,7 @@
 
   <!-- SECTION 2: VỀ CHÚNG TÔI -->
   <section class="mt-10">
-    <div class="max-w-7xl mx-auto px-4 py-12 md:px-8 lg:px-20 font-hd">
+    <div class="container mx-auto px-4 py-12 md:px-8 lg:px-20 font-hd">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         <div class="space-y-2 md:border-r-2 border-[#1F050614] md:pr-8 pb-6 md:pb-0">
           <div class="flex items-center gap-3">
@@ -140,7 +141,7 @@
             <img src="public/img/home1.svg" class="w-full h-auto object-cover" alt="">
           </div>
           <div class="relative text-white ">
-            <div class="grid grid-cols-2 border-white/20 sm:px-6 sm:pr-60 md:pl-10">
+            <div class="grid grid-cols-2 border-white/20 sm:px-10 sm:pr-40 md:pl-10 jo">
               <div class="flex flex-col items-center justify-center py-6 border-b border-white/20 border-r">
                 <h1 class="text-4xl md:text-5xl font-semibold">50+</h1>
                 <p class="text-sm md:text-lg">Khách hàng</p>
@@ -173,127 +174,159 @@
   </section>
 
   <!-- SECTION 4: SLIDE + LĨNH VỰC -->
-  <section>
-    <div class="bg-[#F7F7F7] relative z-0 mt-46">
-      <div class="max-w-7xl mx-auto p-4 py-10 font-hd">
-        <div class="space-y-2 sm:ml-7 md:pr-8 pb-6 md:pb-0 w-[430px]">
-          <div class="flex items-center gap-3">
-            <div class="w-[73px] bg-main h-0.5 hidden sm:block"></div>
-            <h2 class="text-main font-medium text-2xl font-playfair">Lĩnh vực</h2>
-          </div>
-          <div class="text-[#0F3857] font-semibold text-2xl md:text-3xl leading-[130%] uppercase">
-            <h1>Các lĩnh vực kinh doanh chính </h1>
-          </div>
-          <p class="line-clamp-3">
-            Nhôm Kính Gia Phan chuyên tư vấn, thiết kế, sản xuất và thi công các giải pháp nhôm
-            kính chất lượng cao.
-          </p>
-        </div>
-      </div>
+<section>
+  <div class="bg-[#F7F7F7] relative z-0 mt-46">
+    <div class="container mx-auto p-4 py-10 font-hd relative">
 
-
-      <div class="swiper linhvuc-swiper absolute! right-0 top-1/3 -translate-y-1/3 z-20 max-w-[60%]">
-
-        <div class="swiper-wrapper">
-
-          <!-- cart 1 -->
-          <div class="swiper-slide">
-            <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
-              <div>
-                <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
-              </div>
-              <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">01</h3>
-              <div class="mt-2 flex gap-3">
-                <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
-                  Thi công nhôm kính công nghiệp
-                </p>
-                <div class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
-                  <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    stroke="#A41E22">
-                    <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- cart 2 -->
-          <div class="swiper-slide">
-            <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
-              <div>
-                <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
-              </div>
-              <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">02</h3>
-              <div class="mt-2 flex gap-3">
-                <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
-                  Thi công nhôm kính công nghiệp
-                </p>
-                <div class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
-                  <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    stroke="#A41E22">
-                    <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- cart 3 -->
-          <div class="swiper-slide">
-            <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
-              <div>
-                <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
-              </div>
-              <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">03</h3>
-              <div class="mt-2 flex gap-3">
-                <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
-                  Thi công nhôm kính công nghiệp
-                </p>
-                <div class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
-                  <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    stroke="#A41E22">
-                    <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                    <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744" stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div class="space-y-2 sm:ml-7 md:pr-8 pb-6 md:pb-0 max-w-[430px]">
+        <div class="flex items-center gap-3">
+          <div class="w-[73px] bg-main h-0.5 hidden sm:block"></div>
+          <h2 class="text-main font-medium text-2xl font-playfair">Lĩnh vực</h2>
         </div>
 
+        <div class="text-[#0F3857] font-semibold text-2xl md:text-3xl leading-[130%] uppercase">
+          <h1>Các lĩnh vực kinh doanh chính </h1>
+        </div>
+
+        <p class="line-clamp-3">
+          Nhôm Kính Gia Phan chuyên tư vấn, thiết kế, sản xuất và thi công các giải pháp nhôm
+          kính chất lượng cao.
+        </p>
       </div>
 
-      <div class="absolute left-[30%] -bottom-20 flex gap-3">
-        <button class="linhvuc-prev cursor-pointer w-[46px] h-[46px] rounded-full text-main border ">
-          <i class="fa-solid fa-angle-left"></i>
-        </button>
-        <button class="linhvuc-next cursor-pointer w-[46px] h-[46px] rounded-full text-main border">
-          <i class="fa-solid fa-angle-right"></i>
-        </button>
+      <div class="mt-6 sm:mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-1/3 lg:-translate-y-1/3 lg:z-20 lg:max-w-[60%]">
+        <div class="swiper linhvuc-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- cart 1 -->
+            <div class="swiper-slide">
+              <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
+                <div>
+                  <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
+                </div>
+                <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">01</h3>
+                <div class="mt-2 flex gap-3">
+                  <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
+                    Thi công nhôm kính công nghiệp
+                  </p>
+                  <div
+                    class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
+                    <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#A41E22">
+                      <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- cart 2 -->
+            <div class="swiper-slide">
+              <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
+                <div>
+                  <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
+                </div>
+                <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">02</h3>
+                <div class="mt-2 flex gap-3">
+                  <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
+                    Thi công nhôm kính dân dụng
+                  </p>
+                  <div
+                    class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
+                    <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#A41E22">
+                      <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- cart 3 -->
+            <div class="swiper-slide">
+              <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
+                <div>
+                  <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
+                </div>
+                <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">03</h3>
+                <div class="mt-2 flex gap-3">
+                  <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
+                    Cửa nhôm, vách kính, mặt dựng
+                  </p>
+                  <div
+                    class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
+                    <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#A41E22">
+                      <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- cart 4 -->
+            <div class="swiper-slide">
+              <div class="p-4 cart bg-white rounded-xl shadow-md max-w-[358px] font-hd">
+                <div>
+                  <img src="public/img/img-linh-vuc1.svg" class="w-full" alt="">
+                </div>
+                <h3 class="mt-4 font-bold leading-[130%] text-main text-5xl">04</h3>
+                <div class="mt-2 flex gap-3">
+                  <p class="leading-[130%] text-xl font-hd flex-1 line-clamp-3">
+                    Phụ kiện & giải pháp nhôm kính
+                  </p>
+                  <div
+                    class="flex items-center justify-center w-10 h-10 border border-main rounded-full bg-white/80">
+                    <svg width="166px" height="166px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#A41E22">
+                      <path d="M16.3891 8.11096L8.61091 15.8891" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L16.7426 12" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.3891 8.11096L12.5 7.75741" stroke="#A41E22" stroke-width="0.744"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="absolute left-[30%] -bottom-20 flex gap-3">
+      <button class="linhvuc-prev cursor-pointer w-[46px] h-[46px] rounded-full text-main border">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+      <button class="linhvuc-next cursor-pointer w-[46px] h-[46px] rounded-full text-main border">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- SECTION 5: DỰ ÁN  -->
 
   <section class="mt-40 bg-[url('public/img/decor.svg')] bg-cover bg-center bg-no-repeat">
-    <div class="max-w-7xl mx-auto px-4 py-10 font-hd">
+    <div class="container mx-auto px-4 py-10 font-hd">
 
       <div class="flex justify-center mb-8">
         <div class="space-y-4 text-center max-w-[500px]">
@@ -467,7 +500,7 @@
 
   <!-- SECTION 5: ĐỐI TÁC -->
   <section>
-    <div class="max-w-7xl mx-auto ">
+    <div class="container mx-auto ">
       <div class=" p-4 py-10 font-hd flex justify-center">
         <div class="space-y-4 text-center max-w-[600px]">
           <div class="flex items-center gap-3">
@@ -539,7 +572,7 @@
 
   <!-- SECTION: TIN TỨC -->
   <section>
-    <div class="max-w-7xl mx-auto px-4 mt-30 space-y-4">
+    <div class="container mx-auto px-4 mt-30 space-y-4">
       <div class="font-hd flex justify-between items-center">
         <div>
           <div class="space-y-4 ">
@@ -636,7 +669,7 @@
 
 
   <footer class="mt-16 ">
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="container  mx-auto px-4">
 
       <div class="relative overflow-hidden rounded-t-4xl
              bg-gradient-to-r from-[#540909] to-[#971414] text-white
