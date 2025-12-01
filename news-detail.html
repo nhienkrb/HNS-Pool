@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Detail</title>
+</head>
+
+<body>
+<!-- HEADER -->
+<header class="w-full">
+  <nav class="bg-neutral-primary">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
+
+      <div class="relative flex items-center">
+        <div class="absolute w-[90px] h-[68px] rounded-b-lg"
+          style="border-left: 0.5px solid #EEE1E1; border-right: 0.5px solid #EEE1E1; border-bottom: 2px solid #A31D22;">
+        </div>
+
+        <a href="#" class="pl-3">
+          <img src="public/img/LOGO-Gia-phan1.svg" class="h-10 relative z-10" alt="Logo" />
+        </a>
+      </div>
+
+      <nav class="bg-neutral-secondary-soft hidden sm:block font-hd text-base">
+        <div class="px-4 py-3">
+          <div class="flex items-center">
+            <ul class="flex flex-row font-medium mt-0 space-x-6 text-sm">
+              <li><a href="index.html" class="text-heading no-underline ">Trang chủ</a></li>
+              <li><a href="about.html" class="text-heading no-underline ">Về Gia Phan</a></li>
+              <li><a href="service.html" class="text-heading no-underline ">Dịch vụ</a></li>
+              <li><a href="project.html" class="text-heading no-underline ">Dự án</a></li>
+              <li><a href="news.html" class="text-heading no-underline text-main font-bold active-nav">Tin tức</a></li>
+              <li><a href="contact.html" class="text-heading no-underline">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:5541251234"
+          class="text-sm text-white font-semibold no-underline bg-main rounded-3xl py-2 px-4 whitespace-nowrap">
+          0123 456 789
+        </a>
+
+        <a href="#" class="text-sm font-medium text-fg-brand no-underline">
+          <svg class="w-6 h-6 text-main" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <nav class="bg-neutral-secondary-soft border-y border-default block sm:hidden font-hd">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-center">
+        <ul class="flex flex-row font-medium mt-0 space-x-6 text-sm">
+          <li><a href="#" class="text-heading no-underline text-main font-bold active-nav">Trang chủ</a></li>
+          <li><a href="#" class="text-heading no-underline">Về Gia Phan</a></li>
+          <li><a href="#" class="text-heading no-underline">Dịch vụ</a></li>
+          <li><a href="#" class="text-heading no-underline">Dự án</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <main class="max-w-7xl px-4 mx-auto">
+        <!-- SECTION 1: Breadcrumb -->
+        <section>
+            <nav class="text-start font-hd my-8 max-w-4xl flex flex-wrap gap-2">
+                <a href="#" class="text-main-title font-semibold text-base">Trang Chủ /</a>
+                <a href="#" class="text-main-title font-semibold text-base">Tin tức /</a>
+
+                <a href="#" class="text-[#5C5C5C] text-base truncate block max-w-[250px]">
+                    Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp: Nâng tầm không gian sống hiện đại và bền vững
+                </a>
+            </nav>
+
+        </section>
+
+        <!-- SECTION 2: Content -->
+        <section>
+            <div class=" grid grid-cols-12 gap-4 mt-10 font-hd">
+                <div class="col-span-12 md:col-span-9">
+                    <div class="font-hd inline">
+                        <!-- Tiêu đề -->
+                        <div >
+                            <h1 class="text-main-title font-bold text-xl md:text-2xl leading-[150%]">
+                                Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp: Nâng tầm không gian sống hiện đại và
+                                bền vững
+                            </h1>
+
+                            <!-- Info + Icons -->
+                            <div class="flex items-center justify-between mt-3">
+
+                                <!-- Info -->
+                                <div class="flex items-center gap-4 text-sm text-gray-500">
+                                    <span class="flex items-center gap-1">
+                                        <i class="fa-regular fa-user"></i> Admin 01
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <i class="fa-regular fa-clock"></i> 16:31 – 25/06/2023
+                                    </span>
+                                </div>
+
+                                <!-- Action icons -->
+                                <div class="flex items-center gap-3 text-gray-600">
+                                    <button class="p-2 rounded border hover:bg-gray-100">
+                                        <i class="fa-solid fa-link"></i>
+                                    </button>
+                                    <button class="p-2 rounded border hover:bg-gray-100">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </button>
+                                    <button class="p-2 rounded border hover:bg-gray-100">
+                                        <i class="fa-brands fa-square-instagram"></i>
+                                    </button>
+                                    <button class="p-2 rounded border hover:bg-gray-100">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Mô tả intro -->
+                            <p class="mt-5 text-gray-700 leading-[170%]">
+                                Trong kiến trúc hiện đại, nhôm kính đã trở thành vật liệu không thể thiếu, giúp ngôi nhà
+                                không
+                                chỉ
+                                đẹp hơn
+                                mà còn tối ưu hoá công năng sử dụng. Dịch vụ thi công nhôm kính dành cho ngành công
+                                nghiệp ra
+                                đời
+                                nhằm đáp
+                                ứng nhu cầu đa dạng, mang đến những giải pháp toàn diện và bền vững cho mọi công trình.
+                            </p>
+                        </div>
+
+                        <!-- MỤC LỤC -->
+                        <div class="border rounded-lg bg-[#F4F4F4] px-4 py-3 mt-4">
+                            <h3 class="font-semibold text-gray-800 text-base">MỤC LỤC</h3>
+
+                            <div class="mt-3 space-y-1 text-sm">
+                                <div class="flex justify-between items-center py-2 border-b cursor-pointer">
+                                    <span>1. Nhôm kính dân dụng là gì và bao gồm những hạng mục nào?</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="flex justify-between items-center py-2 border-b cursor-pointer">
+                                    <span>2. Vì sao nên lựa chọn nhôm kính cho ngôi nhà của bạn?</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="flex justify-between items-center py-2 cursor-pointer">
+                                    <span>3. Quy trình thi công chuyên nghiệp tại Nhôm Kính Gia Phan</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NỘI DUNG 1 -->
+                        <div class="mt-6 space-y-3">
+                            <h2 class="text-main-title font-semibold text-lg">
+                                1. Nhôm kính dân dụng là gì và bao gồm những hạng mục nào?
+                            </h2>
+
+                            <p class="text-gray-700 leading-[170%]">
+                                Nhôm kính dân dụng là việc ứng dụng các sản phẩm từ nhôm và kính vào các công trình nhà
+                                ở, biệt
+                                thự,
+                                chung cư...
+                            </p>
+
+                            <ul class="list-disc pl-5 text-gray-700 leading-[170%] space-y-1">
+                                <li>Cửa nhôm kính cao cấp</li>
+                                <li>Vách kính cường lực</li>
+                                <li>Lan can kính</li>
+                                <li>Phòng tắm kính</li>
+                                <li>Khung nhôm Xingfa...</li>
+                            </ul>
+                        </div>
+
+                        <!-- NỘI DUNG 2 -->
+                        <div class="mt-6 space-y-3">
+                            <h2 class="text-main-title font-semibold text-lg">
+                                2. Vì sao nên lựa chọn nhôm kính cho ngôi nhà của bạn?
+                            </h2>
+
+                            <ul class="list-disc pl-5 text-gray-700 leading-[170%] space-y-1">
+                                <li>Tính thẩm mỹ cao</li>
+                                <li>Độ bền vượt trội</li>
+                                <li>Cách âm – cách nhiệt</li>
+                                <li>Dễ dàng vệ sinh, bảo trì</li>
+                            </ul>
+                        </div>
+
+                        <!-- NỘI DUNG 3 -->
+                        <div class="mt-6 space-y-3">
+                            <h2 class="text-main-title font-semibold text-lg">
+                                3. Quy trình thi công chuyên nghiệp tại Nhôm Kính Gia Phan
+                            </h2>
+
+                            <ul class="list-disc pl-5 text-gray-700 leading-[170%] space-y-1">
+                                <li>Tư vấn & khảo sát</li>
+                                <li>Báo giá & ký kết hợp đồng</li>
+                                <li>Thiết kế & thi công</li>
+                                <li>Nghiệm thu & bàn giao</li>
+                            </ul>
+                        </div>
+
+                        <!-- BOX LIÊN HỆ CUỐI BÀI -->
+                        <div class="mt-10 p-6  rounded-lg bg-white shadow-full">
+                            <h3 class="font-bold text-main-title text-center leading-[150%] text-2xl">
+                                CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ NHÔM KÍNH GIA PHAN
+                            </h3>
+
+                            <p class="mt-2 text-center text-xl leading-[150%] text-main-title">
+                                <span class="text-gray-700">Địa chỉ:</span>
+                                <b>11/2 Đường liên khu 2–10, Phường Bình Hưng Hoà A,
+                                    Quận Bình Tân, TP. HCM</b>
+                            </p>
+
+                            <p class="text-center text-xl mt-1 text-main-title">
+                                <span class="text-gray-700">Điện thoại:</span>
+                                <b>08 6275 3239 – 093 5555 456</b>
+                            </p>
+
+                            <p class="text-center text-xl mt-1 text-main-title">Email: <b>nhomkinhgiaphan@gmail.com</b>
+                            </p>
+
+                            <div class="text-center mt-4">
+                                <button
+                                    class="bg-main text-white px-12 py-2 rounded text-lg font-bold hover:opacity-90 cursor-pointer">
+                                    LIÊN HỆ NGAY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-12 md:col-span-3 h-fit grid grid-cols-2 md:grid-cols-1 gap-4 mt-2">
+                    <div
+                        class="bg-main-title pb-5 max-h-[445px] bg-[url('public/img/decor-tuvan-outline.svg')] bg-cover bg-center bg-no-repeat">
+                        <h1 class="text-white font-semibold text-2xl leading-9 text-center py-3">TƯ VẤN - BÁO GIÁ</h1>
+                        <div class="relative">
+                            <div class="flex flex-wrap justify-center">
+                                <img src="public/img/persion-tuvan.svg" alt="">
+                                <div class="bg-white text-center p-2 px-7 rounded-2xl">
+                                    <h2 class="text-main-title text-2xl">Hỗ trợ 24/7:</h2>
+                                    <h1 class="font-bold text-main text-3xl">093 5555 456</h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="font-hd bg-[#F7F7F7] p-4 rounded-sm shadow-sm">
+                        <h2 class="text-main-title font-bold text-2xl mb-4">
+                            BÀI VIẾT LIÊN QUAN
+                        </h2>
+
+                        <div class="space-y-4">
+
+                            <div class="flex gap-3 p-2  rounded-lg shadow-sm border bg-white border-gray-100">
+                                <img src="public/img/duan1.png" class="w-20 h-20 object-cover rounded-md" alt="">
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-main-title leading-tight line-clamp-2">
+                                        Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp...
+                                    </p>
+                                    <a href="#" class="text-main text-sm font-semibold mt-1 inline-block underline">
+                                        Xem chi tiết
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="flex gap-3 p-2  rounded-lg shadow-sm border bg-white border-gray-100">
+                                <img src="public/img/duan1.png" class="w-20 h-20 object-cover rounded-md" alt="">
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-main-title leading-tight line-clamp-2">
+                                        Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp...
+                                    </p>
+                                    <a href="#" class="text-main text-sm font-semibold mt-1 inline-block underline">
+                                        Xem chi tiết
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="flex gap-3 p-2  rounded-lg shadow-sm border bg-white border-gray-100">
+                                <img src="public/img/duan1.png" class="w-20 h-20 object-cover rounded-md" alt="">
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-main-title leading-tight line-clamp-2">
+                                        Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp...
+                                    </p>
+                                    <a href="#" class="text-main text-sm font-semibold mt-1 inline-block underline">
+                                        Xem chi tiết
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="flex gap-3 p-2  rounded-lg shadow-sm border bg-white border-gray-100">
+                                <img src="public/img/duan1.png" class="w-20 h-20 object-cover rounded-md" alt="">
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-main-title leading-tight line-clamp-2">
+                                        Dịch vụ thi công nhôm kính dân dụng chuyên nghiệp...
+                                    </p>
+                                    <a href="#" class="text-main text-sm font-semibold mt-1 inline-block underline">
+                                        Xem chi tiết
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+    </main>
+
+    <footer class="mt-16 ">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="relative overflow-hidden rounded-t-4xl
+             bg-gradient-to-r from-[#540909] to-[#971414] text-white
+             px-6 md:px-16 lg:px-20 py-10 md:py-14">
+
+                <img src="public/img/LOGO-Giaphan1-outline.svg" class="pointer-events-none select-none opacity-[0.05]
+                  absolute -left-8 bottom-4 w-64 hidden md:block" alt="">
+
+
+                <div class="relative grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 items-start font-hd">
+                    <div class="space-y-4 mt-33">
+                        <h3 class="text-lg font-semibold">Liên hệ với chúng tôi</h3>
+
+                        <div class="space-y-3 text-sm md:text-base">
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-main text-lg">•</span>
+                                <p>11/2 Đường liên khu 2–10, P. Bình Hưng Hòa A, Q. Bình Tân, TP. HCM</p>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-main text-lg">•</span>
+                                <p>08 6275 3239 – 093 5555 456</p>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-main text-lg">•</span>
+                                <p>nhomkinhgiaphan@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center space-y-5 col-span-2">
+                        <div
+                            class="inline-flex items-center justify-center border border-white rounded-[70%] px-10 py-4">
+                            <img src="public/img/LOGO - Gia phan 1.svg" alt="Gia Phan" class="h-20">
+                        </div>
+
+                        <div class="space-y-3">
+                            <h2 class="text-sm md:text-base font-semibold leading-relaxed uppercase">
+                                CÔNG TY TNHH MTV TM DV NHÔM KÍNH<br>
+                                GIA PHAN
+                            </h2>
+
+                            <p class="text-xs md:text-sm text-white/80 leading-relaxed max-w-xl mx-auto">
+                                Nhôm Kính Gia Phan là đơn vị chuyên tư vấn, thiết kế, sản xuất và thi công các giải pháp
+                                nhôm kính cao
+                                cấp.
+                                Qua nhiều năm hoạt động, Gia Phan tự hào là đối tác uy tín của nhiều công trình, luôn
+                                cam kết mang đến
+                                sản
+                                phẩm chất lượng, dịch vụ chuyên nghiệp và tiến độ nhanh chóng.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-4 text-lg mt-2">
+                            <a href="#"
+                                class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#"
+                                class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="#"
+                                class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+                                <i class="fa-brands fa-zalo"></i>
+                            </a>
+                            <a href="#"
+                                class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 md:text-right mt-33">
+                        <h3 class="text-lg font-semibold">Về chúng tôi</h3>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li><a href="#" class="hover:underline">Về Gia Phan</a></li>
+                            <li><a href="#" class="hover:underline">Dịch vụ</a></li>
+                            <li><a href="#" class="hover:underline">Dự án</a></li>
+                            <li><a href="#" class="hover:underline">Tin tức</a></li>
+                            <li><a href="#" class="hover:underline">Liên hệ</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div
+                    class="relative mt-8 pt-6 border-t border-white/15 text-center text-[11px] md:text-xs text-white/70">
+                    Copyright © 2025 <span class="font-semibold">Nhôm kính Gia Phan</span>.
+                    Powered By HD Agency - All Rights Reserved
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script type="module" src="./src/main.js"></script>
+
+</body>
+
+</html>

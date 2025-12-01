@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* Playfair Display */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Regular.ttf") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-MediumItalic.ttf") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* 2. ĐỊNH NGHĨA THEME TAILWIND 4.1 */
+@theme {
+  --font-hd: "SVN-Poppins", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --color-main: #a41e22;
+  --color-main-title: #0f3857;
+}
+
+.active-nav {
+  position: relative;
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+.active-nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 35%;
+  height: 2px;
+  background-color: #a41e22;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+}
+.shadow-full {
+  box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-red {
+  scrollbar-width: thin;
+  scrollbar-color: #0000001a transparent;
+}
+
+.scroll-red::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-red::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-red::-webkit-scrollbar-thumb {
+  background-color: #ffffff1a;
+  border-radius: 9999px;
+}
+
+.duan-service-swiper .swiper-pagination {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.duan-service-swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 10px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.duan-service-swiper .swiper-pagination-bullet-active {
+  width: 3rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background-color: #0f3857;
+}
+
+.project-gallery-swiper {
+  overflow: visible !important;
+}
+
+.project-gallery-swiper .swiper-slide {
+  width: 80%;
+  max-width: 960px; 
+}
