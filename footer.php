@@ -1,0 +1,112 @@
+<?php
+
+/**
+ * Footer template
+ */
+?>
+
+<footer class="mt-16 ">
+  <div class="container  mx-auto px-4">
+
+    <div class="relative overflow-hidden rounded-t-4xl
+             bg-linear-to-r from-[#540909] to-[#971414] text-white
+             px-6 md:px-16 lg:px-20 py-10 md:py-14">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/LOGO-Giaphan1-outline.svg" class="pointer-events-none select-none opacity-[0.05]
+                  absolute -left-8 bottom-4 w-64 hidden md:block" alt="">
+
+      <div class="relative grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 items-start font-hd">
+
+        <div class="space-y-4 mt-33">
+          <h3 class="text-lg font-semibold">Liên hệ với chúng tôi</h3>
+
+          <div class="space-y-3 text-sm md:text-base">
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-main text-lg">•</span>
+              <p>11/2 Đường liên khu 2–10, P. Bình Hưng Hòa A, Q. Bình Tân, TP. HCM</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-main text-lg">•</span>
+              <p>08 6275 3239 – 093 5555 456</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-main text-lg">•</span>
+              <p>nhomkinhgiaphan@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center space-y-5 col-span-2">
+          <div class="inline-flex items-center justify-center border border-white rounded-[70%] px-10 py-4">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/LOGO - Gia phan 1.svg" alt="Gia Phan" class="h-20">
+          </div>
+
+          <div class="space-y-3">
+            <h2 class="text-sm md:text-base font-semibold leading-relaxed uppercase">
+              CÔNG TY TNHH MTV TM DV NHÔM KÍNH<br>
+              GIA PHAN
+            </h2>
+
+            <p class="text-xs md:text-sm text-white/80 leading-relaxed max-w-xl mx-auto">
+              Nhôm Kính Gia Phan là đơn vị chuyên tư vấn, thiết kế, sản xuất và thi công các giải pháp nhôm kính cao
+              cấp.
+              Qua nhiều năm hoạt động, Gia Phan tự hào là đối tác uy tín của nhiều công trình, luôn cam kết mang đến
+              sản
+              phẩm chất lượng, dịch vụ chuyên nghiệp và tiến độ nhanh chóng.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center gap-4 text-lg mt-2">
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+              <i class="fa-brands fa-zalo"></i>
+            </a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/60 rounded hover:bg-white hover:text-[#971414] transition">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-4 md:text-right mt-33">
+          <h3 class="text-lg font-semibold">Về chúng tôi</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+            <li><a href="#" class="hover:underline">Về Gia Phan</a></li>
+            <li><a href="#" class="hover:underline">Dịch vụ</a></li>
+            <li><a href="#" class="hover:underline">Dự án</a></li>
+            <li><a href="#" class="hover:underline">Tin tức</a></li>
+            <li><a href="#" class="hover:underline">Liên hệ</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="relative mt-8 pt-6 border-t border-white/15 text-center text-[11px] md:text-xs text-white/70">
+        Copyright © 2025 <span class="font-semibold">Nhôm kính Gia Phan</span>.
+        Powered By HD Agency - All Rights Reserved
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<?php wp_footer(); ?>
+</body>
+
+</html>
